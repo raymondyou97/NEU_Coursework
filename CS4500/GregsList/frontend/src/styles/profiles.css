@@ -1,0 +1,67 @@
+li,
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+.header h1 {
+  float: left;
+  width: 50%;
+  text-align: left;
+  padding-top: 8px;
+}
+
+.header .header-links {
+  float: right;
+  width: 50%;
+  text-align: right;
+  padding-top: 8px;
+}
+
+.header-links .link {
+  margin-left: 32px;
+}
+
+.header-links .user-name {
+  margin-right: 8px;
+}
+
+.header-links .log-out {
+  color: #007bff;
+  cursor: pointer;
+}
+
+.header-links .log-out:hover {
+  color: #0056b3;
+  cursor: pointer;
+}
+
+.image-container {
+  margin-left: 30px;
+}
+
+.about-info-container {
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.main-body {
+  text-align: left;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.list-container {
+  margin-top: 20px;
+}
+
+.overview {
+  text-align: left;
+  float: left;
+}
+
+.payment {
+  text-align: left;
+  float: right;
+  margin-left: 50px;
+}

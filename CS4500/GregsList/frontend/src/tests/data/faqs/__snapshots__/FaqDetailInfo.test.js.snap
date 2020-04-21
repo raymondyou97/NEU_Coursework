@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot renders 1`] = `
+<div>
+  <div>
+    <label>
+      ID
+      <select
+        className="form-control"
+        onChange={[Function]}
+        value={0}
+      >
+        <option
+          value={0}
+        >
+          0
+        </option>
+        <option
+          value={1}
+        >
+          1
+        </option>
+        <option
+          value={2}
+        >
+          2
+        </option>
+        <option
+          value={3}
+        >
+          3
+        </option>
+        <option
+          value={4}
+        >
+          4
+        </option>
+      </select>
+    </label>
+  </div>
+  <div>
+    <label>
+      Title
+      <input
+        className="form-control"
+        onChange={[Function]}
+        value="Question #0"
+      />
+    </label>
+  </div>
+  <div>
+    <label>
+      Question
+      <input
+        className="form-control"
+        onChange={[Function]}
+        value="What is your favorite color?"
+      />
+    </label>
+  </div>
+</div>
+`;

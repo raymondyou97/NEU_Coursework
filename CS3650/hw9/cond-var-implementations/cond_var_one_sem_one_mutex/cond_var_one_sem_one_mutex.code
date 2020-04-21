@@ -1,0 +1,21 @@
+class CV {
+  Semaphore s;
+  Lock m;
+  public CV(Lock m) { // Constructor
+    this.m = m;
+    // Assume a special type of semaphore, where s.count never grows beyond 1
+    s = new Semaphore() with s.count = 0 and with s.limit = 1;
+  }
+  
+  public void Wait() { // Pre-condition: this thread holds "m"
+                       // The end user locked "m" when it entered the monitor.
+    m.unlock();
+    s.sem_wait();
+    m.lock();
+    }
+    
+    
+  public void Signal() {
+    s.sem_post();
+  }
+}

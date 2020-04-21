@@ -1,0 +1,44 @@
+#!/usr/bin/env python3
+
+# Script for testing a Turing machine.
+
+import argparse
+import sys
+import os
+
+# Command Line Parser Set-up
+
+p = argparse.ArgumentParser('Tests a Turing machine.')
+p.add_argument('tm', help='the file containing the Turing machine')
+p.add_argument('tests', help='the file containing the tests')
+p.add_argument('--turing', '-t', metavar='interpreter', default=str(os.getcwd() + '/turing') , help='the file containing the interpreter, defaults to \'./turing\'')
+p.add_argument('--verbose', '-v', default=False, action='store_true', help='prints the line-by-line state transitions for the Turing machine')
+
+args = p.parse_args()
+
+tm_path = args.tm
+tests_path = args.tests
+turing_path = args.turing
+verbose = args.verbose
+
+# Read the Test File
+
+try:
+	tests_file = open(tests_path, 'r')
+except OSError:
+	print('Please enter a valid tests file')
+	sys.exit()
+
+tests = tests_file.read().splitlines()
+
+tests_file.close()
+
+# Test each file
+
+
+for test in tests:
+	print(test)
+	if verbose:
+		os.system('echo \'' + test + '\' | ' + turing_path + ' ' + tm_path)
+	else:
+		os.system('echo \'' + test + '\' | ' + turing_path + ' ' + tm_path + ' | tail -n 1')

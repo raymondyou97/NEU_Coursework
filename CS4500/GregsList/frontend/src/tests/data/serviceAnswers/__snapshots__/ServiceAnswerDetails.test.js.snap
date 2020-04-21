@@ -1,0 +1,235 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot renders with data for selected answer 1`] = `
+<div>
+  <h3>
+    Service Answer Details
+  </h3>
+  <div
+    className="service-q-a-details-whole-block"
+  >
+    <div
+      className="service-q-a-details-field"
+    >
+      <span
+        className="service-q-a-details-field-header"
+      >
+        ID
+      </span>
+      <select
+        className="form-control service-q-a-details-id-select"
+        onChange={[Function]}
+        value={3}
+      >
+        <option
+          value={1}
+        >
+          1
+        </option>
+        <option
+          value={2}
+        >
+          2
+        </option>
+        <option
+          value={3}
+        >
+          3
+        </option>
+      </select>
+    </div>
+    <div
+      className="service-q-a-details-field"
+    >
+      <span
+        className="service-q-a-details-field-header"
+      >
+        True/False
+      </span>
+      <input
+        className="form-control service-q-a-details-field-input"
+        value={true}
+      />
+    </div>
+    <div
+      className="service-q-a-details-field"
+    >
+      <span
+        className="service-q-a-details-field-header"
+      >
+        Min Range Answer
+      </span>
+      <input
+        className="form-control service-q-a-details-field-input"
+        value={50}
+      />
+    </div>
+    <div
+      className="service-q-a-details-field"
+    >
+      <span
+        className="service-q-a-details-field-header"
+      >
+        Max Range Answer
+      </span>
+      <input
+        className="form-control service-q-a-details-field-input"
+        value={100}
+      />
+    </div>
+    <div
+      className="service-q-a-details-field"
+    >
+      <span
+        className="service-q-a-details-field-header"
+      >
+        Choice Answer
+      </span>
+      <input
+        className="form-control service-q-a-details-field-input"
+        value={51}
+      />
+    </div>
+    <div>
+      <button
+        className="service-q-a-details-button"
+      >
+        Cancel
+      </button>
+      <button
+        className="service-q-a-details-button"
+        onClick={[Function]}
+      >
+        Delete
+      </button>
+      <button
+        className="service-q-a-details-button"
+      >
+        Create
+      </button>
+      <button
+        className="service-q-a-details-button"
+      >
+        Update
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Snapshot renders with null data for selected answer 1`] = `
+<div>
+  <h3>
+    Service Answer Details
+  </h3>
+  <div
+    className="service-q-a-details-whole-block"
+  >
+    <div
+      className="service-q-a-details-field"
+    >
+      <span
+        className="service-q-a-details-field-header"
+      >
+        ID
+      </span>
+      <select
+        className="form-control service-q-a-details-id-select"
+        onChange={[Function]}
+        value={null}
+      >
+        <option
+          value={1}
+        >
+          1
+        </option>
+        <option
+          value={2}
+        >
+          2
+        </option>
+        <option
+          value={3}
+        >
+          3
+        </option>
+      </select>
+    </div>
+    <div
+      className="service-q-a-details-field"
+    >
+      <span
+        className="service-q-a-details-field-header"
+      >
+        True/False
+      </span>
+      <input
+        className="form-control service-q-a-details-field-input"
+        value={null}
+      />
+    </div>
+    <div
+      className="service-q-a-details-field"
+    >
+      <span
+        className="service-q-a-details-field-header"
+      >
+        Min Range Answer
+      </span>
+      <input
+        className="form-control service-q-a-details-field-input"
+        value={null}
+      />
+    </div>
+    <div
+      className="service-q-a-details-field"
+    >
+      <span
+        className="service-q-a-details-field-header"
+      >
+        Max Range Answer
+      </span>
+      <input
+        className="form-control service-q-a-details-field-input"
+        value={null}
+      />
+    </div>
+    <div
+      className="service-q-a-details-field"
+    >
+      <span
+        className="service-q-a-details-field-header"
+      >
+        Choice Answer
+      </span>
+      <input
+        className="form-control service-q-a-details-field-input"
+        value={null}
+      />
+    </div>
+    <div>
+      <button
+        className="service-q-a-details-button"
+      >
+        Cancel
+      </button>
+      <button
+        className="service-q-a-details-button"
+        onClick={[Function]}
+      >
+        Delete
+      </button>
+      <button
+        className="service-q-a-details-button"
+      >
+        Create
+      </button>
+      <button
+        className="service-q-a-details-button"
+      >
+        Update
+      </button>
+    </div>
+  </div>
+</div>
+`;

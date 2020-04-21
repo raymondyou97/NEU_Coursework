@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot renders 1`] = `
+Array [
+  <tr>
+    <td>
+      how many employees do you have?
+    </td>
+    <td>
+      we have 300 people.
+    </td>
+  </tr>,
+  <tr>
+    <td>
+      how many employees do you have?
+    </td>
+    <td>
+      10 people and growing!
+    </td>
+  </tr>,
+  <tr>
+    <td>
+      how long have you been operating?
+    </td>
+    <td>
+      we've been in business 15 years
+    </td>
+  </tr>,
+  <tr>
+    <td>
+      how long have you been operating?
+    </td>
+    <td>
+      Just got started last year
+    </td>
+  </tr>,
+  <tr>
+    <td>
+      where are you based out of?
+    </td>
+    <td>
+      On Mass Ave!
+    </td>
+  </tr>,
+]
+`;

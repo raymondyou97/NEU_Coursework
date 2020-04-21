@@ -1,0 +1,153 @@
+Raymond You
+CS 3650
+Professor Gene Cooperman
+HW6
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+PROCESSES:
+
+1.  Where is the data structure for the process table?
+
+The data structure for the process table is located in the proc.c file. It begins at line 10. The data structure is called ptable
+
+2.  When there is a context switch from one process to another, where are the values of the registers of the old process saved?
+
+The values of the registers of the old process are saved in the stacks of the old process (%ebp, %ebx, %esi, %edi), in file swtch.S. It start at line 9 and the 
+function name is swtch.
+
+3.  What are the possible states of a process?  Also, give a brief phrase describing the purpose of each state.
+
+UNUSED - uninitialized state in the process table
+EMBRYO - initialized state in the process table to run in the kernel
+RUNNABLE - process can run but is not currently running
+RUNNING - the process is running on a processor
+ZOMBIE - exited process that doesn't have a parent process
+SLEEPING - makes the process sleep and waits until another operation is finished before it can continue
+
+4.  What is the function that does a context switch between two processes?
+
+The function is in defs.h and starts at line 122. The function name is swtch(struct context**, struct context*).
+
+5.  Explain how the context switch function works.
+
+First, the context switch function sets registers with a size and moves the contents from one register to another. This is so that it can 
+save the old stack pointer and its address. Next, the contents in the register of the old process is pushed onto a stack. Then the old stack 
+pointer is moved to save its value and the new stack's address is moved to the stack pointer register. Finally the register values are popped 
+from the new stack. 
+
+6.  What function calls the context switch function, and explain in detail
+    what the calling function does.  (The doxygen hyper-linking
+    is not perfect here.  You may have to use 'grep' on
+       /course/cs3650/unix-xv6/* )
+
+The function that calls the context switch function is scheduler which starts at line 266 in proc.c. First, It acquires the lock of the process 
+table to find a process that is in the state "runnable". It then switches the task state segment and the table to the chosen process and sets 
+that process to state, "running". Next, the swtch function is called to switch the context to the chosen process and then it switches table register
+to page table. The process is done running and variables are released and reset and the lock of the table is released. 
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+PROCESS STARTUP:
+
+1.  Suppose a new program is going to start.  This requires a call to
+    the system call, exec().  On what lines does the operating system
+    create the first call frame, to be used by the user process's main()?
+	
+The operating system creates the first call frame, to be used by the user process's main() in the exec.c file at lines 47 - 51 (load program into memory)
+and the function name is exec. ex. allocuvm(pgdir, sz, ph.vaddr + ph.memsz)
+
+2.  The first call frame must have the values of the
+    local variables argc and argv.  Where is the value of argv found
+    in the exec() call?
+	
+The value of argv in the exec.c file is found from lines 64 to 72 (push argument strings, prepare rest of stack in ustack) and the function name 
+is exec. Line 77 is the arv pointer = ustack[2] = sp - (argc+1)*4;  // argv pointer
+
+
+3.  On what lines does the function modify the process table entry
+    with the new program for the current process?
+	
+The function modifies the process table entry with the new program for the current process from lines 90 to 95 in the exec.c file (committing to
+the user image) and the function is exec. 
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+SYSTEM CALLS:
+
+1.  Give the full details of how a call to 'open()' in grep.c will
+    call the function 'sys_open()' in sysfile.c, inside the operating
+    system kernel.
+	
+When grep.c makes a call to open(), the macro SYSCALL is called which is inside usys.S (define SYSCALL(name)). It will then store the system call number SYS_open(15), found 
+in syscall.h (#define SYS_open   15) in %eax. The interrupt instruction is then used with the argument T_SYSCALL(64) (#define T_SYSCALL       64      // system call), 
+which is a system call interrupt constant found in traps.h (#define T_SYSCALL       64      // system call) and set up in traps.c in function tvinit. Vectors, from vectors.pl, is used 
+in traps.c to store address of interrupt constants. From vectors, all the traps are sent to the function alltraps in trapasm.S. Trap frames are built, data and per-cpu segements are set up, and 
+function trap(tf), in trap.c, is called upon. In function trap with trap frames as arguments, the process of the trap frames are made equal to the current trap frame. 
+Syscall is then called from syscall.c, where the syscall number is taken from process of the trap frame of registers. sys_open is called and the output is saved back 
+in the process of the trap frames of registers. 
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+FILES AND FILE DESCRIPTORS:
+
+1.  The function 'sys_open()' returns a file descriptor 'fd'.
+    To do this, it opens a new file handle 'filealloc()',
+    and it allocates a new file descriptor with 'fdalloc()'.
+    Where is the file descriptor allocated?  Also, you will see that
+    the file descriptor is one entry in an array.  What is the algorithm
+    used to choose which entry in the array to use for the new file descriptor?
+	  
+The file descriptor is in sysfile.c which starts at line number 45 of the fdalloc function (fdalloc(struct file *f)). The algorithm used here finds the first empty file array (for loop), saves 
+the file descriptor in the empty file entry, and uses it as a file descriptor. So a greedy algorithm...? 
+
+
+2.  As you saw above, the file descriptor turned out to be an index
+    in an array.  What is the name of the array for which the file
+    descriptor is an index?  Also, what is the type of one entry in
+    that array.
+	
+The name of the array is "ofile" which is found in proc.h at line 66, and the data structure is proc. The type of one entry in that array is a file struct which is 
+found at file.h starting at line 1. 
+
+
+3.  The type that you saw in the above question is what I was calling
+    a "file handle" (with an offset into the file, etc.).
+    What is the name of the field that holds the offset into the file?
+    We saw it in the function 'sys_open()'.
+	
+The name of the field that holds the offset into the file is called "off" which is from sysfile.c at line 327 (f->off = 0;). It is in function sys_open.
+
+4.  Remember when we mentioned a call to 'filealloc()' above?
+    Since the return value of 'filealloc()' is only a file handle,
+    we need to initialize it.  Presumably, we will initialize it with
+    a file offset of 0.  What is the line number in 'sys_open()' where
+    we initialize the file offset to 0?
+	
+The line number in 'sys_open()' where we initialize the file offset to 0 is line 327 from sysfile.c. It is in function sys_open.
+
+5.  The file handle type was initialized to 'FD_INODE'.  What are the
+    other types that it could have been initialized to?
+	
+FD_NONE or FD_PIPE (all in the enum type declaration)
+
+6.  Suppose a file handle had been initialized to FD_PIPE.  Find the
+    'struct' that holds the information about a pipe.  For each field
+    in that struct, Explain briefly (just a phrase) the purpose of that
+    field.
+	
+The information about a pipe is in pipe.c starting at line 12 and the data structure is pipe. 
+struct spinlock lock - lock to allow concurrency
+char data[PIPESIZE] - a data buffer
+uint nread - number of bytes read
+uint nwrite -  number of bytes written
+int readopen - either 0 or 1 to see if readfd is open or closed
+int writeopen - either 0 or 1 ot see if writefd is open or closed
+
+7.  By examining the function 'sys_dup()', you can discover how a
+    system call to 'dup()' will manipulate both a file descriptor
+    and a "file handle".  Describe what it does in each of the
+    two cases.
+	
+For a file descriptor, a file descriptor is set to a new file descriptor's index by finding an empty file entry in ofile and pointing it to 
+the file handle. For a file handle, it increase the ref count by 1 (f->ref++;)

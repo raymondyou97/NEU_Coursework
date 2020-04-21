@@ -1,0 +1,177 @@
+#!/usr/bin/env python3
+
+import argparse
+import socket
+import threading
+from urllib.parse import urlparse
+from html.parser import HTMLParser
+
+socket_timeout = 30
+login_url = 'http://fring.ccs.neu.edu/accounts/login/?next=/fakebook/'
+# these 3 should be sets, so we don't have to check for duplicates
+links_pending = {'http://fring.ccs.neu.edu/fakebook/'}
+links_completed = set()
+secret_flags = set()
+
+class MyHtmlParser(HTMLParser):
+    def init(self):
+        self.csrf_token = None
+
+    def handle_starttag(self, tag, attrs):
+        # grab the csrf token and save it
+        self.grab_csrf_token(tag, attrs)
+
+        # add all new links
+        if tag == 'a' and attrs[0][1][0] == '/':
+            new_link = 'http://fring.ccs.neu.edu' + attrs[0][1]
+            if new_link in links_pending or new_link in links_completed:
+                return
+            links_pending.add(new_link)
+
+    def handle_data(self, data):
+        if 'FLAG:' in data:
+            new_flag = data.split('FLAG: ')[1]
+            secret_flags.add(new_flag)
+
+    def grab_csrf_token(self, html_tag, data):
+        if html_tag != 'input' or ('name', "\\'csrfmiddlewaretoken\\'") not in data:
+            return
+
+        t1, t2, t3 = data
+
+        if t1 != ('type', "\\'hidden\\'") and t2 != ('name', "\\'csrfmiddlewaretoken\\'"):
+            return
+
+        _, csrf_token = t3
+        self.csrf_token = csrf_token.replace('\\\'', '')
+
+
+def connect(host, port):
+    my_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    my_socket.settimeout(socket_timeout)
+    my_socket.connect((host, port))
+    return my_socket
+
+def receive(my_socket):
+    try:
+        chunks = []
+        while(True):
+            recv = my_socket.recv(10000)
+            chunks.append(str(recv))
+            if len(recv) == 0:
+                my_socket.close()
+                break
+        return "".join(chunks)
+    except:
+      print("Connection timed out.")
+
+def get_session_id(html):
+    beginning = html.find('sessionid') + 10
+    end = html.find('; expires=')
+    session_id = html[beginning:end]
+    return session_id
+
+def login(username, password, csrf_token):
+    form_data = "username={username}&password={password}&csrfmiddlewaretoken={csrftoken}&next=%2Ffakebook%2F\n\n".format(username=username, password=password, csrftoken=csrf_token)
+    cookie = "csrftoken={token};".format(token=csrf_token)
+    (status, response) = post_request("http://fring.ccs.neu.edu/accounts/login", "/accounts/login/", form_data, cookie)
+    return response
+
+def get_request(url, cookie):
+    url_parts = urlparse(url)
+    path, host = url_parts.path, url_parts.netloc
+    my_socket = connect(host, 80)
+    request = 'GET {} HTTP/1.1\r\nHost: {}\r\nCookie: {}\r\nConnection: Close \r\n\r\n'.format(path, host, cookie)
+    my_socket.sendall(request.encode())
+    response = receive(my_socket)
+    status_code = response[11:14]
+    return (status_code, response)
+
+def post_request(url, path, form_data, cookie):
+    host = urlparse(url).netloc
+    sock = connect(host, 80)
+    request = """
+POST {} HTTP/1.1
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9,ru;q=0.8
+Cache-Control: no-cache
+Connection: Close
+Content-Type: application/x-www-form-urlencoded
+Cookie: {}
+Host: {}
+Origin: http://fring.ccs.neu.edu
+Referer: {}
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Mobile Safari/537.36
+""".format(path, cookie, host, login_url)
+    request += "Content-Length: " + str(len(form_data)) + "\n\n"
+    request += form_data
+    sock.sendall(request.encode())
+    response = receive(sock)
+    status_code = response[11:14]
+    return (status_code, response)
+
+def crawl(my_parser, session_cookie):
+    global links_pending, links_completed
+    if len(links_pending) > 0:
+        link = links_pending.pop()
+        # skip if already done
+        if link is None or link in links_completed:
+            return
+        (status_code, response) = get_request(link, session_cookie)
+        # grab new URL in the Location header
+        if status_code == 301:
+            print(response)
+        # skip it
+        elif status_code in [403, 404]:
+            print(status_code)
+            return
+        # add back to set and try again
+        elif status_code == 500:
+            print(status_code)
+            links_pending.add(link)
+            return
+        else:
+            try:
+                my_parser.feed(response)
+                links_completed.add(link)
+            except:
+                pass
+
+def start_crawling(my_parser, session_cookie):
+    while len(secret_flags) < 5:
+        # not sure about # of threads, decrease if it breaks...
+        if threading.active_count() < 20:
+            try:
+                thread = threading.Thread(target=crawl, args=(my_parser, session_cookie))
+                thread.start()
+            except:
+                pass
+
+def print_all_flags():
+    assert(len(secret_flags) == 5)
+    for flag in secret_flags:
+        print(flag)
+
+def main(username, password):
+    # 1: get csrf token
+    inital_status, intial_load = get_request(login_url, None)
+    my_parser = MyHtmlParser()
+    my_parser.feed(intial_load)
+    csrf_token = my_parser.csrf_token
+    # 2: login and get session id
+    login_reponse = login(username, password, csrf_token)
+    session_id = get_session_id(login_reponse)
+    session_cookie = 'csrftoken={};  sessionid={}'.format(csrf_token, session_id)
+    # 3: start crawling
+    start_crawling(my_parser, session_cookie)
+    # 4: print the 5 flags
+    print_all_flags()
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='web crawler')
+    parser.add_argument('username', metavar='username', type=str, help='your username')
+    parser.add_argument('password', metavar='password', type=str, help='your password')
+    args = parser.parse_args()
+    main(args.username, args.password)

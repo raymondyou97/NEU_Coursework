@@ -1,0 +1,79 @@
+; A Turing machine that recognizes { a^i b^j c^k | 0 < i < j < k}
+; Accepts: (a b b c c c), (a a b b b c c c c), (a b b b c c c c)
+; Doesnt Accept: (), (a a b b c c), (b a c), (a a b b b b c c c)
+
+; Algorithm
+; 1. First check if its a..b..c.. and place < > markers
+; 2. Cross off a letter for each a
+; 3. Cross off a letter for each b
+; 4. See if there are any c's left. If there is accept, else reject.
+
+(
+    ; place < marker
+    (q0 (a < R q01)
+		(b b R q1)
+        (* * R reject))
+		
+	; check for a's	
+	(q01 (a a R q01)
+		 (b a R q1)
+		 (* * R reject))
+		 
+	; check for b's
+	(q1 (b b R q1)
+		(c b R q2)
+        (* * R reject))
+
+	; check for c's
+	(q2 (c c R q2)
+		(_ c R q3)
+		(* * R reject))
+		
+	; place > marker
+	(q3 (_ > R q4)
+		(* * R reject))
+		
+	; go back to < marker
+	(q4 (_ _ L q5))
+	(q5 (< < L q6)
+		(* * L q5))
+		
+	;start algo
+	;cross off 1 a
+	(q6 (< < R q6)
+		(a X R q7)
+		(X X R q10))
+		
+	
+	;cross off 1 b
+	(q7 (a a R q7)
+		(b X R q8)
+		(X X R q7))
+		
+	;cross off 1 c
+	(q8 (b b R q8)
+		(c X R q9)
+		(X X R q8)
+		(> _ R reject))
+		
+	;go back to first X
+	(q9 (c c R q9)
+		(> > L q5))
+	
+	;go through the x's
+	(q10 (X X R q10)
+		 (a X R q11)
+		 (b X R q8)
+		 (c c R accept)
+		 (> _ R reject))
+		 
+	;if last a, check if it is last b
+	(q11 (c c R reject)
+		 (b X R q12)
+		 (a a R q7)
+		 (X X R q11))
+		 
+	(q12 (X X R reject)
+		 (b b R q8))
+		
+)

@@ -1,0 +1,22 @@
+22.1 Definition and properties of a transaction (no specific question on architecture)
+
+22.2.1 Concurrency control
+
+22.2.2 Serializability and Recverability (skipping view serializability)
+
+22.2.3 Locking methods (skipping concurrency control with index structures,  as well as latches)
+
+22.2.4 Deadlocks
+
+22.2.5 Timestamping methods (basic algorithm - not including Thomas's write rule)
+
+22.2.8 Granularity of data items
+
+22.3 Database Recovery ( does not 22.3.5 Recovery in a distributed DBMS)
+
+ 22.3.1 the need for reovery
+
+ 22.3.2 transactions and recovery
+
+ 22.3.3 recovery facilities 22.3.4 recovery techniques
+

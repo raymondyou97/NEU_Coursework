@@ -1,0 +1,34 @@
+---------------------------- MODULE two_threads ----------------------------
+\* Copyright (c) 2017, Gene Cooperman.  May be freely distributed
+\* and modified as long as this copyright notice remains.
+
+EXTENDS Naturals, TLC
+
+(*
+--algorithm threads {
+  variables x=0, y=0;
+  
+  process (thread1 = "thr1")
+  { start1:  skip; \* Do nothing at beginning
+    1a: if ( y=0 ) {
+    1b:     x:=1; } ;
+    end1a: if (pc["thr2"] = "Done") { \* If other guy is done
+          print <<"x, y:", x, y>> ;
+    end1b:   assert ~(x=1 /\ y=1) ; \* Condition "not(x==1 && y==1)" can fail
+        }
+  } \* end process block
+  
+  process (thread2 = "thr2")
+  { start2:  skip; \* Do nothing at beginning
+    2a: if ( x=0 ) {
+    2b:     y:=1; } ;
+    end2a: if (pc["thr1"] = "Done") { \* If other guy is done
+          print <<"x, y:", x, y>> ;
+    end2b:   assert ~(x=1 /\ y=1) ; \* Condition "not(x==1 && y==1)" can fail
+        }
+  } \* end process block
+
+  } \* end algorithm
+*)
+
+==================================================

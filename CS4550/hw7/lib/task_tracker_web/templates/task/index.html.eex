@@ -1,0 +1,35 @@
+<h1>Listing Tasks</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Task ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Completed?</th>
+            <th>Assigned To:</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%= for task <- @tasks do %>
+        <tr>
+            <td><%= task.id %></td>
+            <td><%= task.title %></td>
+            <td><%= task.description %></td>
+            <td><%= task.completed %></td>
+            <td><%= task.user.name %></td>
+            <td>
+                <%= link "Show", to: Routes.task_path(@conn, :show, task),
+            class: "btn btn-secondary" %>
+                <%= link "Edit", to: Routes.task_path(@conn, :edit, task),
+            class: "btn btn-info" %>
+                <%= link "Delete", to: Routes.task_path(@conn, :delete, task), method: :delete, data: [confirm: "Are you sure?"],
+            class: "btn btn-danger" %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<span><%= link "New Task", to: Routes.task_path(@conn, :new) %></span>

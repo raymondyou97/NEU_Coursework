@@ -1,0 +1,71 @@
+.service-detail-container {
+  width: 67%;
+  margin: 0 auto;
+  padding: 16px;
+  border: 1px solid #556270;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.service-detail-header {
+  margin: 0 0 12px 0;
+}
+
+.service-detail-row {
+  width: 100%;
+  display: flex;
+  flex: 1 1;
+}
+
+.service-detail-title {
+  width: 25%;
+  display: flex;
+  padding: 12px;
+}
+
+.service-detail-input {
+  display: flex;
+  padding: 12px;
+  flex: 1 0;
+}
+
+.service-detail-input input {
+  width: 100%;
+  height: 20px;
+  border-radius: 3px;
+  padding-left: 8px;
+  border: 1px solid #d5ded9;
+}
+
+.service-detail-input select {
+  width: 50%;
+  height: 20px;
+}
+
+.service-detail-buttons {
+  padding: 12px;
+  display: flex;
+}
+
+.service-detail-buttons button {
+  height: 25px;
+  display: flex;
+  margin-right: 4px;
+  flex: 1 0;
+}
+
+.service-detail-buttons button:last-child {
+  margin-right: 0;
+}
+
+.service-detail-cancel {
+  background-color: #556270;
+}
+
+.service-detail-delete {
+  background-color: #dc3545;
+}
+
+.service-detail-update {
+  background-color: #007bff;
+}

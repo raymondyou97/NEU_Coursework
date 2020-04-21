@@ -1,0 +1,37 @@
+// Accepts the language consisting of palindromes of even length
+// over the printable characters of the ASCII character set,
+// encoded as integers using 8 bits per character.
+//
+// Example:
+//     the empty string is encoded as 0
+//     abcddcba encodes as 7017280452228768353
+//     ablewasiereisawelbaablewasiereisawelba encodes as
+//         12398478861918701994983820879952171272556976615571502093265629990468920726973922342454714977
+
+input s;
+
+if s = 0 then accept else skip;
+
+r := 0;
+
+// loop invariant:
+// r is the reverse of the characters we've processed so far
+// s consists of the input characters we have not processed
+// processing proceeds from right to left
+
+while s > 0 do
+  begin
+    // two guesses: r = s or not r = s
+    fork guess := 0 through 1;
+    if guess = 1
+      then if r = s then accept else reject
+      else
+        begin
+          q := s / 256;
+          c := s - 256 * q;  // c is the low-order character of s
+          r := 256 * r + c;  // add that character at the right of r
+          s := q             // remove that character from s
+        end
+  end;
+reject;
+output 0

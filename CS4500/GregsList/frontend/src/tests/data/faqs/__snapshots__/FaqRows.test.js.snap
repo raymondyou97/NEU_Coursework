@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot renders 1`] = `
+Array [
+  <tr>
+    <td>
+      Question #0
+    </td>
+    <td>
+      What is your favorite color?
+    </td>
+    <td>
+      <button
+        className="btn btn-primary btn-sm"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "height": "auto",
+          }
+        }
+        type="button"
+      >
+        Edit
+      </button>
+    </td>
+    <td>
+      <button
+        className="btn btn-danger btn-sm"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "height": "auto",
+          }
+        }
+        type="button"
+      >
+        X
+      </button>
+    </td>
+  </tr>,
+  <tr>
+    <td>
+      Question #1
+    </td>
+    <td>
+      What is your favorite color?
+    </td>
+    <td>
+      <button
+        className="btn btn-primary btn-sm"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "height": "auto",
+          }
+        }
+        type="button"
+      >
+        Edit
+      </button>
+    </td>
+    <td>
+      <button
+        className="btn btn-danger btn-sm"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "height": "auto",
+          }
+        }
+        type="button"
+      >
+        X
+      </button>
+    </td>
+  </tr>,
+  <tr>
+    <td>
+      Question #2
+    </td>
+    <td>
+      What is your favorite color?
+    </td>
+    <td>
+      <button
+        className="btn btn-primary btn-sm"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "height": "auto",
+          }
+        }
+        type="button"
+      >
+        Edit
+      </button>
+    </td>
+    <td>
+      <button
+        className="btn btn-danger btn-sm"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "height": "auto",
+          }
+        }
+        type="button"
+      >
+        X
+      </button>
+    </td>
+  </tr>,
+  <tr>
+    <td>
+      Question #3
+    </td>
+    <td>
+      What is your favorite color?
+    </td>
+    <td>
+      <button
+        className="btn btn-primary btn-sm"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "height": "auto",
+          }
+        }
+        type="button"
+      >
+        Edit
+      </button>
+    </td>
+    <td>
+      <button
+        className="btn btn-danger btn-sm"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "height": "auto",
+          }
+        }
+        type="button"
+      >
+        X
+      </button>
+    </td>
+  </tr>,
+  <tr>
+    <td>
+      Question #4
+    </td>
+    <td>
+      What is your favorite color?
+    </td>
+    <td>
+      <button
+        className="btn btn-primary btn-sm"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "height": "auto",
+          }
+        }
+        type="button"
+      >
+        Edit
+      </button>
+    </td>
+    <td>
+      <button
+        className="btn btn-danger btn-sm"
+        disabled={false}
+        onClick={[Function]}
+        style={
+          Object {
+            "height": "auto",
+          }
+        }
+        type="button"
+      >
+        X
+      </button>
+    </td>
+  </tr>,
+]
+`;

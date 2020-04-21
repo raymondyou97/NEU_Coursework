@@ -1,0 +1,380 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot renders: ServiceCards 1`] = `
+<div
+  className="card-deck"
+>
+  <div
+    className="card"
+    style={
+      Object {
+        "flex": "none",
+        "flexDirection": "column",
+        "flexWrap": "wrap",
+        "marginBottom": "15px",
+        "maxHeight": "100%",
+        "maxWidth": "50%",
+      }
+    }
+  >
+    <img
+      className="card-img-top"
+      src="https://picsum.photos/300/200"
+    />
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        <a
+          href="/ServiceProviderSearch/1"
+        >
+          Appliance Installation
+        </a>
+      </p>
+    </div>
+  </div>
+  <div
+    className="card"
+    style={
+      Object {
+        "flex": "none",
+        "flexDirection": "column",
+        "flexWrap": "wrap",
+        "marginBottom": "15px",
+        "maxHeight": "100%",
+        "maxWidth": "50%",
+      }
+    }
+  >
+    <img
+      className="card-img-top"
+      src="https://picsum.photos/300/200"
+    />
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        <a
+          href="/ServiceProviderSearch/2"
+        >
+          Cabinetry
+        </a>
+      </p>
+    </div>
+  </div>
+  <div
+    className="card"
+    style={
+      Object {
+        "flex": "none",
+        "flexDirection": "column",
+        "flexWrap": "wrap",
+        "marginBottom": "15px",
+        "maxHeight": "100%",
+        "maxWidth": "50%",
+      }
+    }
+  >
+    <img
+      className="card-img-top"
+      src="https://picsum.photos/300/200"
+    />
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        <a
+          href="/ServiceProviderSearch/3"
+        >
+          Door Installation
+        </a>
+      </p>
+    </div>
+  </div>
+  <div
+    className="card"
+    style={
+      Object {
+        "flex": "none",
+        "flexDirection": "column",
+        "flexWrap": "wrap",
+        "marginBottom": "15px",
+        "maxHeight": "100%",
+        "maxWidth": "50%",
+      }
+    }
+  >
+    <img
+      className="card-img-top"
+      src="https://picsum.photos/300/200"
+    />
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        <a
+          href="/ServiceProviderSearch/4"
+        >
+          Concrete Removal
+        </a>
+      </p>
+    </div>
+  </div>
+  <div
+    className="card"
+    style={
+      Object {
+        "flex": "none",
+        "flexDirection": "column",
+        "flexWrap": "wrap",
+        "marginBottom": "15px",
+        "maxHeight": "100%",
+        "maxWidth": "50%",
+      }
+    }
+  >
+    <img
+      className="card-img-top"
+      src="https://picsum.photos/300/200"
+    />
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        <a
+          href="/ServiceProviderSearch/5"
+        >
+          Dishwasher Installation
+        </a>
+      </p>
+    </div>
+  </div>
+  <div
+    className="card"
+    style={
+      Object {
+        "flex": "none",
+        "flexDirection": "column",
+        "flexWrap": "wrap",
+        "marginBottom": "15px",
+        "maxHeight": "100%",
+        "maxWidth": "50%",
+      }
+    }
+  >
+    <img
+      className="card-img-top"
+      src="https://picsum.photos/300/200"
+    />
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        <a
+          href="/ServiceProviderSearch/6"
+        >
+          Finish Carpentry
+        </a>
+      </p>
+    </div>
+  </div>
+  <div
+    className="card"
+    style={
+      Object {
+        "flex": "none",
+        "flexDirection": "column",
+        "flexWrap": "wrap",
+        "marginBottom": "15px",
+        "maxHeight": "100%",
+        "maxWidth": "50%",
+      }
+    }
+  >
+    <img
+      className="card-img-top"
+      src="https://picsum.photos/300/200"
+    />
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        <a
+          href="/ServiceProviderSearch/7"
+        >
+          Floor Polishing
+        </a>
+      </p>
+    </div>
+  </div>
+  <div
+    className="card"
+    style={
+      Object {
+        "flex": "none",
+        "flexDirection": "column",
+        "flexWrap": "wrap",
+        "marginBottom": "15px",
+        "maxHeight": "100%",
+        "maxWidth": "50%",
+      }
+    }
+  >
+    <img
+      className="card-img-top"
+      src="https://picsum.photos/300/200"
+    />
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        <a
+          href="/ServiceProviderSearch/8"
+        >
+          Furniture Assembly
+        </a>
+      </p>
+    </div>
+  </div>
+  <div
+    className="card"
+    style={
+      Object {
+        "flex": "none",
+        "flexDirection": "column",
+        "flexWrap": "wrap",
+        "marginBottom": "15px",
+        "maxHeight": "100%",
+        "maxWidth": "50%",
+      }
+    }
+  >
+    <img
+      className="card-img-top"
+      src="https://picsum.photos/300/200"
+    />
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        <a
+          href="/ServiceProviderSearch/9"
+        >
+          Generator Installation
+        </a>
+      </p>
+    </div>
+  </div>
+  <div
+    className="card"
+    style={
+      Object {
+        "flex": "none",
+        "flexDirection": "column",
+        "flexWrap": "wrap",
+        "marginBottom": "15px",
+        "maxHeight": "100%",
+        "maxWidth": "50%",
+      }
+    }
+  >
+    <img
+      className="card-img-top"
+      src="https://picsum.photos/300/200"
+    />
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        <a
+          href="/ServiceProviderSearch/10"
+        >
+          Gardening
+        </a>
+      </p>
+    </div>
+  </div>
+  <div
+    className="card"
+    style={
+      Object {
+        "flex": "none",
+        "flexDirection": "column",
+        "flexWrap": "wrap",
+        "marginBottom": "15px",
+        "maxHeight": "100%",
+        "maxWidth": "50%",
+      }
+    }
+  >
+    <img
+      className="card-img-top"
+      src="https://picsum.photos/300/200"
+    />
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        <a
+          href="/ServiceProviderSearch/11"
+        >
+          Home Organizing
+        </a>
+      </p>
+    </div>
+  </div>
+  <div
+    className="card"
+    style={
+      Object {
+        "flex": "none",
+        "flexDirection": "column",
+        "flexWrap": "wrap",
+        "marginBottom": "15px",
+        "maxHeight": "100%",
+        "maxWidth": "50%",
+      }
+    }
+  >
+    <img
+      className="card-img-top"
+      src="https://picsum.photos/300/200"
+    />
+    <div
+      className="card-body"
+    >
+      <p
+        className="card-text"
+      >
+        <a
+          href="/ServiceProviderSearch/12"
+        >
+          Electrical and Wiring Repair
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+`;

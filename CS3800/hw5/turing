@@ -1,0 +1,18 @@
+#! /usr/bin/env bash
+
+# For running the Turing machine simulator as an R7RS program.
+#
+# Usage: turing <machine>
+#
+#     where <machine> is the name of a file contains a description
+#     of the Turing machine to be simulated, in the format documented
+#     by comments in turing.scm
+
+# export LARCENY_ROOT="/proj/will/LarcenyGit/"
+
+PGMPATH="/course/cs3800sp19/Examples/Turing"
+PGM="/course/cs3800sp19/Examples/Turing/turing.sps.slfasl"
+
+LARCENY=${LARCENY:-"larceny"}
+
+${LARCENY} --path ${PGMPATH} ${PGM} -- $1

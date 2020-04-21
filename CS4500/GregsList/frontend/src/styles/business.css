@@ -1,0 +1,30 @@
+.business-save-btn {
+  height: 100%;
+  width: 25%;
+}
+
+.business-save-btn-container {
+  padding: 15px;
+}
+
+.business-profile-container {
+  padding: 5%;
+  padding-top: unset;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.general-and-address {
+  flex: 1;
+  padding: 5px;
+  border: solid #bfbfbf 1px;
+  margin: 2px;
+}
+
+.payment-and-social {
+  flex: 1;
+  padding: 5px;
+  border: solid #bfbfbf 1px;
+  margin: 2px;
+}

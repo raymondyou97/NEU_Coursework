@@ -1,0 +1,15 @@
+#! /usr/bin/env bash
+
+# For running the WhileFork interpreter as an R7RS program.
+#
+# Usage: whileFork pgm input1 ...
+#
+#     where pgm is the name of a file containing a While/Fork program
+#     input1 is the first input to the program.
+
+PGMPATH="/course/cs3800sp19/Examples/While"
+PGM="/course/cs3800sp19/Examples/While/whileFork.sps"
+
+LARCENY=${LARCENY:-"larceny"}
+
+${LARCENY} --path ${PGMPATH} ${PGM} -- $@

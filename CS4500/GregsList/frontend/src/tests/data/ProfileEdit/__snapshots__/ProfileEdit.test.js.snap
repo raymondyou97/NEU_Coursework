@@ -1,0 +1,456 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Empty snapshot renders 1`] = `
+<div
+  className="profile-edit-container"
+>
+  <h1>
+    Edit My Profile
+  </h1>
+  <form
+    className=""
+  >
+    <label
+      className="profile-edit-label form-label"
+    >
+      Username
+    </label>
+    <input
+      className="profile-edit-input username-input form-control"
+      onChange={[Function]}
+      placeholder="Username"
+      value=""
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      First name
+    </label>
+    <input
+      className="profile-edit-input firstname-input form-control"
+      onChange={[Function]}
+      placeholder="First name"
+      value=""
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      Last name
+    </label>
+    <input
+      className="profile-edit-input lastname-input form-control"
+      onChange={[Function]}
+      placeholder="Last name"
+      value=""
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      Old password
+    </label>
+    <input
+      className="profile-edit-input password-input form-control"
+      onChange={[Function]}
+      placeholder="Old password"
+      type="password"
+      value=""
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      New password
+    </label>
+    <input
+      className="profile-edit-input password-input form-control"
+      onChange={[Function]}
+      placeholder="New password"
+      type="password"
+      value=""
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      Confirm New password
+    </label>
+    <input
+      className="profile-edit-input confirm-input  form-control"
+      onChange={[Function]}
+      placeholder="Confirm password"
+      type="password"
+      value=""
+    />
+    <button
+      className="submit-button btn btn-primary"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      Update Information
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Snapshot with all user data renders 1`] = `
+<div
+  className="profile-edit-container"
+>
+  <h1>
+    Edit My Profile
+  </h1>
+  <form
+    className=""
+  >
+    <label
+      className="profile-edit-label form-label"
+    >
+      Username
+    </label>
+    <input
+      className="profile-edit-input username-input form-control"
+      onChange={[Function]}
+      placeholder="Username"
+      value="tsawyer"
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      First name
+    </label>
+    <input
+      className="profile-edit-input firstname-input form-control"
+      onChange={[Function]}
+      placeholder="First name"
+      value="tom"
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      Last name
+    </label>
+    <input
+      className="profile-edit-input lastname-input form-control"
+      onChange={[Function]}
+      placeholder="Last name"
+      value="sawyer"
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      Old password
+    </label>
+    <input
+      className="profile-edit-input password-input form-control"
+      onChange={[Function]}
+      placeholder="Old password"
+      type="password"
+      value="ts"
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      New password
+    </label>
+    <input
+      className="profile-edit-input password-input form-control"
+      onChange={[Function]}
+      placeholder="New password"
+      type="password"
+      value="tsaw"
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      Confirm New password
+    </label>
+    <input
+      className="profile-edit-input confirm-input  form-control"
+      onChange={[Function]}
+      placeholder="Confirm password"
+      type="password"
+      value="tsaw"
+    />
+    <button
+      className="submit-button btn btn-primary"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      Update Information
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Snapshot with user data and no passwords renders 1`] = `
+<div
+  className="profile-edit-container"
+>
+  <h1>
+    Edit My Profile
+  </h1>
+  <form
+    className=""
+  >
+    <label
+      className="profile-edit-label form-label"
+    >
+      Username
+    </label>
+    <input
+      className="profile-edit-input username-input form-control"
+      onChange={[Function]}
+      placeholder="Username"
+      value="tsawyer"
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      First name
+    </label>
+    <input
+      className="profile-edit-input firstname-input form-control"
+      onChange={[Function]}
+      placeholder="First name"
+      value="tom"
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      Last name
+    </label>
+    <input
+      className="profile-edit-input lastname-input form-control"
+      onChange={[Function]}
+      placeholder="Last name"
+      value="sawyer"
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      Old password
+    </label>
+    <input
+      className="profile-edit-input password-input form-control"
+      onChange={[Function]}
+      placeholder="Old password"
+      type="password"
+      value=""
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      New password
+    </label>
+    <input
+      className="profile-edit-input password-input form-control"
+      onChange={[Function]}
+      placeholder="New password"
+      type="password"
+      value=""
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      Confirm New password
+    </label>
+    <input
+      className="profile-edit-input confirm-input  form-control"
+      onChange={[Function]}
+      placeholder="Confirm password"
+      type="password"
+      value=""
+    />
+    <button
+      className="submit-button btn btn-primary"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      Update Information
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Snapshot with user data and only half of password fields filled renders 1`] = `
+<div
+  className="profile-edit-container"
+>
+  <h1>
+    Edit My Profile
+  </h1>
+  <form
+    className=""
+  >
+    <label
+      className="profile-edit-label form-label"
+    >
+      Username
+    </label>
+    <input
+      className="profile-edit-input username-input form-control"
+      onChange={[Function]}
+      placeholder="Username"
+      value="tsawyer"
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      First name
+    </label>
+    <input
+      className="profile-edit-input firstname-input form-control"
+      onChange={[Function]}
+      placeholder="First name"
+      value="tom"
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      Last name
+    </label>
+    <input
+      className="profile-edit-input lastname-input form-control"
+      onChange={[Function]}
+      placeholder="Last name"
+      value="sawyer"
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      Old password
+    </label>
+    <input
+      className="profile-edit-input password-input form-control"
+      onChange={[Function]}
+      placeholder="Old password"
+      type="password"
+      value="ts"
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      New password
+    </label>
+    <input
+      className="profile-edit-input password-input form-control"
+      onChange={[Function]}
+      placeholder="New password"
+      type="password"
+      value="sawy"
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      Confirm New password
+    </label>
+    <input
+      className="profile-edit-input confirm-input passwords-fail form-control"
+      onChange={[Function]}
+      placeholder="Confirm password"
+      type="password"
+      value=""
+    />
+    <button
+      className="submit-button btn btn-primary"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      Update Information
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Snapshot with user data but non-matching new passwords renders 1`] = `
+<div
+  className="profile-edit-container"
+>
+  <h1>
+    Edit My Profile
+  </h1>
+  <form
+    className=""
+  >
+    <label
+      className="profile-edit-label form-label"
+    >
+      Username
+    </label>
+    <input
+      className="profile-edit-input username-input form-control"
+      onChange={[Function]}
+      placeholder="Username"
+      value="tsawyer"
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      First name
+    </label>
+    <input
+      className="profile-edit-input firstname-input form-control"
+      onChange={[Function]}
+      placeholder="First name"
+      value="tom"
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      Last name
+    </label>
+    <input
+      className="profile-edit-input lastname-input form-control"
+      onChange={[Function]}
+      placeholder="Last name"
+      value="sawyer"
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      Old password
+    </label>
+    <input
+      className="profile-edit-input password-input form-control"
+      onChange={[Function]}
+      placeholder="Old password"
+      type="password"
+      value="ts"
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      New password
+    </label>
+    <input
+      className="profile-edit-input password-input form-control"
+      onChange={[Function]}
+      placeholder="New password"
+      type="password"
+      value="tsaw"
+    />
+    <label
+      className="profile-edit-label form-label"
+    >
+      Confirm New password
+    </label>
+    <input
+      className="profile-edit-input confirm-input passwords-fail form-control"
+      onChange={[Function]}
+      placeholder="Confirm password"
+      type="password"
+      value="tsaw123"
+    />
+    <button
+      className="submit-button btn btn-primary"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      Update Information
+    </button>
+  </form>
+</div>
+`;

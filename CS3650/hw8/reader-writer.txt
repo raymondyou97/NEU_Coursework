@@ -1,0 +1,133 @@
+	Reader-Writer and Monitors (condition variables)
+
+  Copyright (c) Gene Cooperman, 2017
+  This may be copied, modified, and re-distributed (and additional
+  copyrights added), as long as this copyright notice remains.
+
+This note provides some more background on the reader-writer problem,
+since the information on Wikipedia is limited, and ostep.org
+does not cover the reader-writer problem.
+
+The key observation is that a reader or writer will go through
+three phases:
+  Phase A:  ACQUIRE THE RIGHTS TO A RESOURCE
+	    For example, acquire read permission on the master
+		copy of a video on the Web.
+            For example, acquire write permission on the master
+		copy of a video on the Web.
+	    OUTCOME:  Either we acquire permission immediately,
+		or we have to wait for that permission.
+		(This is similar to sem_wait() in the discussion
+		 of producer-consumer using semaphores.)
+
+  Phase B:  USE THE PERMISSION FOR AS LONG AS YOU NEED TO GET THE JOB DONE.
+	    For example, stream the master copy of the video to
+		your desktop.  It's also fine if two readers want
+		to independently stream this video.
+	    For example,.if you are a writer with _exclusive_ access,
+		then over-write (edit) the master copy of the video at the
+		server site with a new version, since you know that no
+		one else is currently streaming the video.
+
+  Phase C:  RELEASE THE RIGHTS TO A RESOURCE
+	    For example, release read permission on the master
+		copy of the video.
+            For example, release write permission on the master
+		copy of the video.
+	    OUTCOME:  Release the permission immediately.
+		In addition, signal to anybody who is waiting
+		that the e-book might now be available.
+		(This is similar to sem_post() in the discussion
+		 of producer-consumer using semaphores.)
+
+So, Phase A and C should be fast in the sense that sem_wait() and
+sem_post() are fast.  Phase B takes a lot of time, but we can
+have many readers in parallel (or occasionally a single writer,
+while all other readers and writers are waiting).
+
+Next, we create a "monitor", to be used _only_ for Phase A and
+Phase C.  Initially, let's think of the monitor as a critical section
+guarded by a mutex.  So, we call pthread_mutex_lock(&monitor_lock)
+at the beginning of Phase A.  At the end of Phase A, we call
+pthread_mutex_unlock(&monitor_lock).  And we do the same thing for
+Phase C.  So, at any given time, at most one thread can be in the
+combination of Phase A and C.  All other threads are either in Phase B,
+or else they don't really care about videos anyway.
+
+And next, a thread needs to know how many other readers and writers
+might be trying to stream the video or to edit the video.  So, we
+will declare two global variables, NumReaders and NumWriters.
+Conceptually, we think of these variables as existing inside
+the monitor.  No thread should read or write these two variables
+unless they are holding the monitor_lock.
+
+Now it's easy to see a solution for the reader-writer problem.
+For example, a reader acquires the monitor_lock in Phase A and reads
+NumWriters.  If "NumWriters > 0", then this thread should "sleep for a
+while", and temporarily give up the monitor_lock while it's sleeping.
+It can then try again later and check if "NumWriters == 0".
+Also, in Phase A, if the reader succeeds in acquiring permission,
+the readers should do "NumReaders++".  Phase C is even easier,
+the reader decrements: "NumReaders--".  And the reader then sends
+a signal in case anyone else is waiting for permission (sleeping).
+Since we decremented NumReaders, maybe the person waiting would like to
+try again for permission.
+
+There is a similar explanation for the writer in Phase A and Phase C.
+In Phase A, the writer now cares if "NumWriters > 0", and if not, then the
+writer will increment:  "NumWriters++".  Otherwise, the writer waits.
+In Phase C, the writer does "NumWriters--", and the writer signals
+to anyone else who might be waiting/sleeping, since that person might like
+to try again for permission.
+
+So, that's pretty much the whole story.  We just need Linux system
+calls that handle the "monitor_lock" and do the waiting/sleeping and
+signalling.
+
+The new system calls are:
+  pthread_cond_wait(condition_variable, monitor_lock);
+  pthread_cond_signal(condition_variable);
+  pthread_cond_init(condition_variable, attribute); // Just set attrib. to NULL
+
+In pthread_cond_wait, there is an extra argument, "monitor_lock",
+because the implementation of pthread_cond_wait() needs to
+unlock the "monitor_lock".  (Never go to sleep while holding a lock.)
+When the thread returns from pthread_cond_wait() (perhaps because
+someone signalled to it), then the implementation of pthread_cond_wait()
+arranges to call "pthread_mutex_lock(&monitor_lock)" at the
+end of pthread_cond_wait().  This is because maybe the signal
+went to many threads that were waiting.  (In fact,
+"pthread_cond_broadcast()" would have done just that -- broadcast its
+signal.)
+
+Finally, let's look at what happens to a thread that just returned from
+pthread_cond_wait().  This thread is now holding the monitor_lock.  The
+thread can try again to get permission.  (Maybe this is a writer.  Maybe
+"NumReaders" used to be 17, and now it is 16.  The writer needs to wait
+until "NumReaders" is 0.  So, upon returning from pthread_cond_wait(),
+the writer better check again for the current value of "NumReaders".
+
+[ PLEASE NOTE:  In an earlier version of this pseudo-code,
+  I accidentally placed the NumReaders++/NumWriters++ after
+  the "if" statement.  It belongs before the "if" statement. ]
+So, the pseudo-code for any thread (reader or writer) who executes
+Phase A is something like:
+  pthread_lock(&monitor_lock);
+  Either do "NumReaders++" or do "NumWriters++"
+  if (the appropriate condition for this reader or writer is not true) {
+    pthread_cond_wait(&condition_variable, &monitor_lock);
+  }
+  pthread_unlock(&monitor_lock);
+
+The pseudo-code for a thread (reader or writer) that executes
+Phase C is something like:
+  pthread_lock(&monitor_lock);
+  Either do "NumReaders--" or do "NumWriters--"
+  if (numReaders == 0 && numWriters > 0) {
+    pthread_cond_signal(&condition_variable);  // wake up a writer
+  }
+  pthread_unlock(&monitor_lock);
+
+After that, any reader-writer problem is just a matter of filling in
+these details.  For detailed pseudo-code, see:
+  https://en.wikipedia.org/wiki/Readers%E2%80%93writers_problem

@@ -1,0 +1,249 @@
+		Notes on Using the TLA+ Toolbox
+	    [ These notes are based on TLA+ 1.5.4 ]
+
+DOWNLOADING AND INSTALLING:
+   Download the toolbox at:
+     https://github.com/tlaplus/tlaplus/releases/
+     (from https://lamport.azurewebsites.net/tla/toolbox.html#downloading )
+   Select/extract the .zip file for your computer (Linux, Mac OS, or Windows).
+     [On the Mac, if it complains "unknown developer", got to
+	Apple menu->System Preferences->Security & Privacy->"General" tab,
+	and temporarily "Click the lock to make changes", and temporarily
+	allow apps downloaded from: "Anywhere"; When you can execute it;
+	move TLA+ Toolbox to "Applications" folder]
+   The binary is self-contained (assuming that you have Java 8 or higher).
+   On Linux, the executable will be at:  toolbox/toolbox
+   On Windows, the executable will be at:  toolbox/toolbox.exe
+   ===
+   NOTE FOR MAC:
+   Note that PlusCal currently requires Java 8 or higher.
+   On the Mac OS, you will have to install Java 8 or higher, if you have
+   not previously done so.  There is a strange bug where when the Mac
+   detects that you are running Java 8, and recommends to instead use
+   the Mac legacy Java 6.  (Maybe this happens if you download
+   only the Java SE Runtime Environment.)  If you see this,
+   DON'T BELIEVE THE MAC!  You need Java 8.
+       When you install Java 8, choose the "Java 8 SDK" (from Oracle);
+   and not the "Java SE Runtime Environment".
+
+PlusCal EXAMPLES:
+As for example TLA+ spec's, I found this site useful:
+  https://github.com/quux00/PlusCal-Examples
+This is in addition to our class examples, currently at:
+  https://course.ccs.neu.edu/cs7600/parent/tla+/PlusCal-examples/
+
+PlusCal FRAMEWORK:
+* The PlusCal spec ("--algorithm ...") is analogous to a high-level language.
+  This is known as a spec (specification).  The spec is in a .tla file.
+* Selecting "File->Translate PlusCal Algorithm" from the menu will
+    modify your MYSPEc.tla to append lower-level TLA+ code.  This is analogous
+    to compiling into assembly code.
+    [ In an annoying mis-feature, you will also need the final line:
+      "===================="  (four or more '=' to indicate end-of-file) ]
+* "TLC Model Checker->New Model" is analogous to creating a new
+    executable file from your MYSPEc.tla source file.
+* The model tab in the GUI (e.g., "Model_1"), allows you to go to the
+    "Model Overview" sub-tab, and enter the constants for your
+    .tla spec.  This is analogous to choosing the inputs when
+    running the executable.
+* "TLC Model Checker->Run model" allows you to then execute the model.
+* If there are errors, you will see a "TLC Errors" sub-window appear.
+    You can drag this sub-window, and explore the "Error-Trace"
+    (analogous to a stack trace, showing the stack at the point of the error).
+  IMPORTANT:  Since you can't copy-paste from that sub-window, search
+    below in this document on how to find the raw text file, MC_TE.out,
+    with the same information that is shown in the GUI.
+
+THE PlusCal USER'S MANUAL:
+* Don't forget "A PlusCal User's Manual, C-Syntax":
+    https://lamport.azurewebsites.net/tla/c-manual.pdf
+
+RECALL:
+* The PlusCal code in the .tla file is the analog of source code.
+   [Instead of calling exit(), you can call "goto Done;".
+    The label "Done" exists internally.  You don't need your own "Done".]
+* "File -> Translate PlusCal Algorithm" is the analog of the compiler
+* The "BEGIN TRANSLATION" code (raw TLA+) in the modified .tla file
+    is the analog of assembly language.
+* The "Model" (TLC Model Checker -> New Model) is the analog of the executable.
+* The "What is the model?" sub-window of the "Model Overview" tab of the
+    "Model" tab just created is the analog of the input values for the
+    executable.  There is one for each CONSTANT in your .tla file,
+    and maybe a constant, "defaultInitValue", for any uninitialized constants.
+  [And you can also choose to select "Deadlock" if you want to check for that.]
+* Weirdly, after you set the inputs to the model in the "Model" tab of TLA+
+    displays the "Model"->"Model Checking Results" sub-sub-tab.
+    Select "Model"->"Model Overview" to go back and change the inputs
+    to something else, for a new execution.
+* The "Error-Trace Exploration" sub-window of "TLC Errors" is the analog of a
+    stack trace for a run-time error.
+    (similar to what you see from Python, GDB:"where"/"bt")
+  [I don't like the GUI for the "Error-Trace Exploration", because it's awkward
+     when you have a trace of 20 frames.  In this case, consider directly
+     viewing the file "MYSPEC.toolbox/Model_1/MC_TE.out" (assuming that you're
+     looking at the "Model_1" executable for the "MYSPEC.tla" source code).]
+* PlusCal/TLA+ continues to be developed and improved, but it can get corrupted.
+    If you suspect it's corrupted, start over:
+    Exit the TLA+ Toolbox, and delete the "MYSPEC.toolbox" directory
+      (assuming that you are working with a source code spec in "MYSPEC.tla").
+    [ If you want to be extra sure, delete the initialization files:
+        In Linux, it's at:  ~/.tlaplus/  [Look for "tlaplus" on your platform.]]
+
+SOME IMPORTANT PARTS OF THE TLA+ TOOLBOX FOR THE MODEL (as opposed to the spec):
+  * In the model checker, "Model Overview", make sure that you have
+    selected "Temporal formula", and that "Spec" is written in the
+    corresponding box.  If you can't select "Temporal formula", then maybe
+    TLA+ is corrupted.  Exit the TLA+ Toolbox (exit the GUI) and then delete
+    the MYSPEC.toolbox directory (where we assume MYSPEC.tla is the
+    the current PlusCal spec file that you're working with).
+    If you want to be extra sure, delete the initialization files:
+      In Linux, it's at:  ~/.tlaplus/  [Look for "tlaplus" on your platform.]
+  * In "What is the model?", the system lists your constants.  Each constant
+    must have a value in order to run the model.
+  * If something seems weird, delete the entire model, and select
+    "New Model" from the TLC Model Checker menu.
+  * If running the model produces errors (in the "TLC Errors" sub-window,
+    otherwise known as the "Trace Viewer"), then you can:
+      a. Drag the "TLC Errors" window into a separate window or even
+         a top-level tag, to see more of the Error-Trace.
+         [ Or alternatively, click on "Maximize" icon to right of "TLC Errors"]
+      b. Examine the text source of that window in: 
+           MYSPEC.toolbox/Model_1/MC_TE.out
+         (assuming you are running Model_1 for MYSPEC.tla .)
+      c. To quickly see all transitions, do:
+           grep 'pc = ' MYSPEC.toolbox/Model_1/MC_TE.out
+
+REPORTING BUGS IN TLA+ toolbox:
+  For creating github issues about bugs (or searching for known bugs,
+  or even joining the developers and fixing some of the bugs), see:
+     https://github.com/tlaplus/tlaplus/issues
+     (from: https://lamport.azurewebsites.net/tla/toolbox.html )
+
+BEWARE OF THESE "gotchas":
+  1.  If you forget to select "Translate PlusCal Algorithm" and you
+     have only the PlusCal spec (in comments) with no TLA+ code
+     (with no analog of assembly code), then the model (analog of
+     the executable) will still run without error, but the "Coverage"
+     sub-window will show 0 lines of coverage and the "State space progress"
+     sub-window will show only 1 state.  The solution is to
+     go back and select "Translate PlusCal Algorithms".
+  2.  If "***Parse Error***" and 'Was expecting "==== or more Module body"',
+     then it means that after the PluSCal portion (in comments), you need
+     to add a line with four or more '=' characters.
+  3.  When you select "Translate PlusCal Algorithm" from menu, the TLA+
+     toolbox sometimes gets confused.  Try selecting it again.  Or in some
+     cases, manually delete the text from "BEGIN TRANSLATION" to
+     "END TRANSLATION".
+  4.  If you select "Run model" from menu, and the radio button
+     for "Temporal formula" is grayed out, then it means that your TLA+ model
+     files are corrupted.  This seems to happen often.  The solution is
+     to remove your NAME.toolbox directory, and try again.
+     If the box for "Temporal formula" is not filled in automatically,
+     type "Spec" in that box.
+  5.  If "run model" reports "model errors", it means that somewhere
+     on the "Model Overview" tab, something is not right, and you
+     should look at the entire web page to see what could be wrong.
+     One common issue is that a variable must still be set.
+     You will see "VAR_NAME ->" with no value.
+     (Click on the "Edit" button to set it.)
+  6.  In the PlusCal User's Manual, line numbers are labeled "l1", "l2",
+     etc.  They look like the numbers 11 and 12, but in fact they are valid
+     traditional variable names.  It's sometimes possible to use numbers for
+     labels, but it's dangerous, since they may conflict with the same name
+     in other regions of the program.
+  7.  The C version of the PlusCal manual is preferred here.  TLC is
+     the TLA+ Model Checker in the TLA+ Toolbox (for when you "run the model").
+  8.  It's painful, but you may not re-use the same name (even as a local
+     variable) in two different processes or procedure.
+  9.  The GUI for TLA+ Toolbox version 1.5.3 has lots of bugs!
+     Repeat the command if you don't believe it.
+     Also, you can delete the region between "BEGIN TRANSLATION" and
+     "END TRANSLATION", and then "Translate PlusCAL Algorithm" again.
+     Maybe sometimes, you should just quit and start a new session.
+  10.  If you run the model and you see that the Coverage area shows that
+     the "Count" for some lines is 0, be suspicious.  It means that those
+     lines in your spec are unreachable.
+  11. Because TLA+ insists that all variables and labels are unique
+     (even different uses of local variables), it will sometimes give
+     you weird parsing errors.  Note that TLA+ uses some common variable
+     names within its own TRANSLATION section, such as "stack", "pc"
+     and "self", and the PlusCal reserved keywords (e.g., begin, constant,
+     variable, etc.).  The VARIABLES statement in the TRANSLATION section
+     lists what TLA+ is currently using in this particular program.
+     Try renaming a variable, and see if that fixes it.
+  12. If you forget to declare a local variable of the same name
+     as used elsewhere in a different procedure, TLA+ will not warn you.
+  13. Pay attention to ":=" versus "=", to avoid confusing error messages.
+  14. Sometimes, TLA+ will want a ';' after the final '}' an an
+     if statement, even though this would not be required in C.
+     Similarly, TLA+ will often want a ';' after the finale '}' in "while".
+  15. If you forget to write "call" when calling a procedure, TLA+
+     will confuse it with a macro, and give you confusing error messages.
+  16. The error message 'Expected ";" but found "..."' often means that
+     an extra label in the body of that statement is required, or you
+     should remove a label.  (For example, there is no label before "or"
+     in "either {...} or {...}"..
+  17. In the "Model"->"Model Checking Results" sub-sub-tab, they display
+     the icon for green forward triangle ("Runs TLC on the model").  This
+     is not actually helpful, since running again will produce the same
+     output again.  If you want to run again under new inputs, then
+     switch to the "Model"->"Model Overview" sub-sub-tab and change
+     the inputs and re-run from that sub-sub-tab.
+  18. It would be nice if you could do a copy-paste on the Error-Trace
+     sub-sub-window of the "TLC Errors" sub-window.  (The "TLC Errors"
+     sub-window is apparently also known as "The Trace Viewer" or
+     "The Trace View".  By the way, you can drag it into a separate window.)
+     Although the copy-paste for this window doesn't seem to work in the GUI,
+     there is a workaround for copying the text of the Trace View.
+     For MYSPEC.tla, look inside the file:
+       MYSPEC.toolbox/Model_1/MC_TE.out
+     where Model_1 is a model created with the MC menu (Model Checking).
+     With an editor, look at MC_TE.out.  Search within that file for:
+       "1: <Initial predicate>"
+     This is the beginning of the raw text that would appear in the
+     Error-Trace sub-window from that run.  Apparently, in MC_TE.out,
+     MC is "Model Checking" and TE is "Trace-Explorer"(?), which corresponds
+     to the Error-Trace window.
+       Another useful trick (to see all transitions of an Error-Trace) is:
+     grep 'pc = ' MYSPEC.toolbox/Model_1/MC_TE.out
+
+FURTHER READING:
+*  TLA+ Video Course - https://lamport.azurewebsites.net/video/videos.html
+   + A slow video introduction; consider selecting "speed=1.5" in video,
+     and skimming the first video or two.  Note the "advance by 5 seconds"
+     in the video software.
+* BOOK by Leslie Lamport with free downloads for personal use:
+    Specifying Systems: The TLA+ Language and Tools for Hardware and
+	Software Engineers - https://lamport.azurewebsites.net/tla/book.html
+    (Note that this book refers to the earlier TLA+, version 1.)
+*  TLAPS: The TLA+ Proof System:
+   + TLA+ Proofs - https://lamport.azurewebsites.net/pubs/tlaps.pdf
+   * TLA+, version 2: A Preliminary Guide (by Leslie Lamport, 2014) -
+     - http://lamport.azurewebsites.net/tla/tla2-guide.pdf
+     -  See especially, Section 8.2: The Problem with Temporal Logic
+        [ The standard deduction principle is "if we can prove B from A,
+          then 'A implies B' is a true tstatement".  This is not
+          sound (cannot be used) for temporal logic.  In particular,
+          from "x=1" (x equals 1), we can prove "x=1".  So, a naive
+          temporal logic would say that the following is true:
+            if "x=1" is true, then "x=1" is true always (forever)
+          To fix this, we could forbid the simple "x=1", and insist
+          that it must always be qualified by some sequence
+          of actions (of temporal steps).  But then it becomes difficult
+          to write proofs using "x=1".  So TLA+ tries to mix together
+          non-temporal predicate formulas (true at one instant)
+          with temporal formulas (true under all executions/actions;
+          such as an "assert").
+          It tries to bias the language so that mostly one is talking
+          about non-temporal predicate formulas. ]
+* Use of Formal Methods at Amazon Web Services
+   + http://lamport.azurewebsites.net/tla/amazon.html
+   + "How Amazon Web Services Uses Formal Methods"
+      appeared in the April, 2015 issue of CACM
+     - https://cacm.acm.org/magazines/2015/4/184701-how-amazon-web-services-uses-formal-methods/abstract
+     - OR EARLIER VERSION: http://lamport.azurewebsites.net/tla/formal-methods-amazon.pdf
+   + "Why Amazon Chose TLA+"
+     - A copy can be obtained on request from the author:
+       chris.newcombe@gmail.com
+     - or available from the publisher:
+         https://link.springer.com/chapter/10.1007%2F978-3-662-43652-3_3

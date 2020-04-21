@@ -1,0 +1,22 @@
+/* This file is for your main application css. */
+
+$body-bg: #EEE;
+
+@import "~bootstrap/scss/bootstrap"; 
+
+.new-task-btn {
+    width: 100%;
+}
+
+.new_task_column {
+    width: 25%;
+    display: inline-block;
+}
+
+.task-bold {
+    font-weight:bold;
+}
+
+.task-border {
+    border-bottom: 2px solid black;
+}

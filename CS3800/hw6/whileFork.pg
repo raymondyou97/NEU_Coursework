@@ -1,0 +1,85 @@
+ParseGen grammar for While/Fork.
+This grammar is designed for action routines that take arguments.
+
+*terminals
+
+eof
+
+;
+assign
+
+input
+output
+accept
+reject
+skip
+if
+then
+else
+while
+do
+begin
+end
+fork
+through
+
+id
+intliteral
+
++
+-
+*
+/
+
+(
+)
+
+not
+=
+lt
+gt
+
+
+*productions
+
+P               ::=  input I ; P                                #mkInput
+                ::=  R eof                                      #mkSequence
+
+R               ::=  S ; R                                      #cons
+                ::=  output E                                   #mkOutput
+
+Q               ::=  S Q2                                       #cons
+Q2              ::=                                             #empty
+                ::=  ; Q                                        #identity
+
+S               ::=  accept                                     #mkAccept
+                ::=  reject                                     #mkReject
+                ::=  skip                                       #mkSkip
+                ::=  I assign E                                 #mkAssign
+                ::=  if B then S else S                         #mkIf
+                ::=  while B do S                               #mkWhile
+                ::=  begin Q end                                #mkSequence
+                ::=  fork I assign E through E                  #mkFork
+
+E               ::=  T E2                                       #mkExp
+E2              ::=                                             #mkNone
+                ::=  + T E2                                     #mkPartialAdd
+                ::=  - T E2                                     #mkPartialSub
+T               ::=  F T2                                       #mkTerm
+T2              ::=                                             #mkNone
+                ::=  * F T2                                     #mkPartialMul
+                ::=  / F T2                                     #mkPartialDiv
+F               ::=  I                                          #identity
+                ::=  ( E )                                      #identity
+                ::=  N                                          #identity
+
+B               ::=  not B                                      #mkNot
+                ::=  E B2                                       #mkBoolExp
+B2              ::=  lt E                                       #mkPartialLT
+                ::=  = E                                        #mkPartialEQ
+                ::=  gt E                                       #mkPartialGT
+
+I               ::=  id                                         #mkVar
+N               ::=  intliteral                                 #mkNum
+
+*end

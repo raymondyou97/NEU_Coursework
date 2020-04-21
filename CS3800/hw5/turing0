@@ -1,0 +1,8 @@
+; A Turing machine that recognizes { 0^n | n >= 0 }
+
+(
+    ; nothing but zeroes so far
+    (q0 (0 0 R q0)
+        (_ _ R accept)
+        (* * R reject)) 
+)

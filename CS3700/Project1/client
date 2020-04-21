@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+
+import socket
+import ssl
+import argparse
+from collections import namedtuple
+
+def main():
+    # get args
+    args = get_args()
+    host = args.hostname
+    port = args.port
+    my_id = args.id
+    with_ssl = args.ssl
+
+    # other args
+    my_class = 'cs3700spring2020'
+    msg_length = 8192 # in bytes
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    # SSL enabled?
+    if with_ssl:
+        port = port if port != 27993 else 27994
+        sock = ssl.SSLSocket(sock)
+
+    # connect to socket
+    sock.settimeout(10)
+    sock.connect((host, port))
+
+    # send initial message
+    message = f'{my_class} HELLO {my_id}\n'.encode()
+    sock.sendall(message)
+    msg = read_message(sock, msg_length)
+    
+    # loop until termination
+    while True:
+        msg_arr = msg.split(' ')
+        if len(msg_arr) < 3:
+            raise Exception()
+
+        command = msg_arr[1]
+        sym = msg_arr[2]
+        if command == 'FIND' and len(msg_arr) == 4:
+            sentence = msg_arr[3].rstrip('\n')
+            count = sentence.count(sym)
+            message = f'{my_class} COUNT {count}\n'.encode()
+            sock.sendall(message)
+            msg = read_message(sock, msg_length)
+        elif command == 'BYE':
+            secret_key = msg_arr[2]
+            print(secret_key)
+            break;
+        else:
+            sock.close()
+            raise Exception()
+    
+    sock.close()
+
+def read_message(socket, length):
+    resp = socket.recv(length)
+    msg = resp.decode()
+
+    # keep getting msg content until new line delim found
+    while not msg.endswith('\n'):
+        resp = socket.recv(length)
+        new_part = resp.decode()
+        msg += new_part
+
+    return msg
+
+def get_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-p', action='store', type=int, default=27993, required=False)
+    parser.add_argument('-s', action='store_true', required=False)
+    parser.add_argument('hostname', action='store')
+    parser.add_argument('id', action='store')
+    p = parser.parse_args()
+
+    Args = namedtuple('Args', 'port ssl hostname id')
+    my_args = Args(p.p, p.s, p.hostname, p.id)
+
+    return my_args
+    
+main()
+

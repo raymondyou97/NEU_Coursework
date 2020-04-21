@@ -1,0 +1,12 @@
+<script>
+ window.gameName = "<%= @name %>";
+ window.playerName = "<%= @user %>";
+</script>
+
+<div class="row">
+  <div class="column">
+    <div id="root">
+      React component loading...
+    </div>
+  </div>
+</div>

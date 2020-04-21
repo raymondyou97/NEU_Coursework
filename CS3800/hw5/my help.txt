@@ -1,0 +1,8 @@
+To run against professor's compiler:
+/course/cs3800sp19/Examples/Turing/turing TheoryHW/hw5/tm3
+
+Submit (pretty much like systems):
+1) tar -czf hw5.tgz hw5
+2) /course/cs3800sp19/submit you.r@husky.neu.edu 5 hw5.tgz
+3) Save the confirmation number
+4) logout

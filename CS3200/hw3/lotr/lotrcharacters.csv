@@ -1,0 +1,11 @@
+name,species,homeland,royalty,fellowship,survive,alias,book_number_introduction
+elrond,elf,rivendell,1,0,1,lord of rivendell,1
+faramir,human,gondor,1,0,1,captain of the white tower,3
+Sauron,maiar,mordor,0,0,0,dark lord,1
+Saruman,maiar,isengard,0,0,0,saruman the white,1
+Gandalf,maiar,undying lands,0,1,1,greybeard,1
+Frodo,hobbit,shire,0,1,1,bearer of the one ring,1
+Legolas,elf,mirkwood,1,1,1,prince of the woodlands,1
+Gimli,dwarf,lonely mountain,0,1,1,lockbearer,1
+Aragorn,human,gondor,1,1,1,strider,1
+Eowyn,human,rohan,1,0,1,white lady of rohan,2

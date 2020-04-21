@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="column">
+    <p><%= link "← go back", to: "/" %></p>
+    <h2>The factor results of <%= @x %> are: </h2>
+      <%= if @x < 2 do %>
+        <p>There are no prime factors for numbers less than 2.</p>
+      <% else %>
+        <p>Prime factors: <%= @y %></p>
+      <% end %>
+  </div>
+</div>

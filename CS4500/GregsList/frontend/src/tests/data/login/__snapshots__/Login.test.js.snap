@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Empty snapshot renders 1`] = `
+<div
+  className="sign-in-container"
+>
+  <h1>
+    Sign in
+  </h1>
+  <form
+    className=""
+  >
+    <label
+      className="login-label form-label"
+    >
+      Username
+    </label>
+    <input
+      className="login-input null username-input form-control"
+      onChange={[Function]}
+      placeholder="Username"
+      value=""
+    />
+    <label
+      className="login-label form-label"
+    >
+      Password
+    </label>
+    <input
+      className="login-input null password-input form-control"
+      onChange={[Function]}
+      placeholder="Password"
+      type="password"
+      value=""
+    />
+    <button
+      className="submit-button btn btn-primary"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      Register
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Login with user data renders 1`] = `
+<div
+  className="sign-in-container"
+>
+  <h1>
+    Sign in
+  </h1>
+  <form
+    className=""
+  >
+    <label
+      className="login-label form-label"
+    >
+      Username
+    </label>
+    <input
+      className="login-input null username-input form-control"
+      onChange={[Function]}
+      placeholder="Username"
+      value="jonah"
+    />
+    <label
+      className="login-label form-label"
+    >
+      Password
+    </label>
+    <input
+      className="login-input null password-input form-control"
+      onChange={[Function]}
+      placeholder="Password"
+      type="password"
+      value="password"
+    />
+    <button
+      className="submit-button btn btn-primary"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      Register
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Snapshot with data and error renders 1`] = `
+<div
+  className="sign-in-container"
+>
+  <h1>
+    Sign in
+  </h1>
+  <form
+    className=""
+  >
+    <label
+      className="login-label form-label"
+    >
+      Username
+    </label>
+    <input
+      className="login-input error username-input form-control"
+      onChange={[Function]}
+      placeholder="Username"
+      value="asdf"
+    />
+    <label
+      className="login-label form-label"
+    >
+      Password
+    </label>
+    <input
+      className="login-input error password-input form-control"
+      onChange={[Function]}
+      placeholder="Password"
+      type="password"
+      value="password"
+    />
+    <label
+      className="login-label-fail form-label"
+    >
+      Username and password do not match!
+    </label>
+    <button
+      className="submit-button btn btn-primary"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      Register
+    </button>
+  </form>
+</div>
+`;

@@ -1,0 +1,34 @@
+1. Assembly
+2. C pointers
+    * => int *x; (TYPE)
+         y = *x; (DEREFERENCE)
+    & => &x (ADDRESS OF)
+    x->myfield = (*x).myfield
+3. Syscalls: fork, execvp, waitpid
+        fds: open, close, dup, dup2
+4. Python: especially list comprehension
+5. Cache: fully associative, direct-mapped, set associative
+6. Virtual memory (page table, TLB)
+7. UNIX process table (xv6)
+    struct file (in ram) vs i-node: fd points to a struct file, a "struct file" for a file on disk points to an i-node
+        fd = open(O_R_DONLY, O_RDWR....(permissions))
+        i-node (internal headers of a file on disk): permissions: ls -l rwx ----r-x
+8. POSIX threads
+    pthread_create(..)
+    pthread_join(..)
+9. Synchronization
+    a) mutex -> can create a critical section (protected with mutex_lock(..) and mutex_unlock(..)), a boolean only one thread can hold the lock
+        use: protect a global, shared variable
+    b) semaphore -> plain variable that is changed (for example, incremented or decremented, or toggled) depending on programmer-defined conditions. can 
+       support the producer-consumer problem. Uses sem_post(..), sem_wait(..)
+    c) monitors -> condition variables (spurious wakeups are possible). Uses Pthread_cond_wait, Pthread_cond_signal (also uses a mutex). Reader_writer problem: global shared variables (num_readers, num_writers)
+    
+        Two operations:
+            a) Acquire a permission:
+                while(numReaders > 0) //i am a writer
+                    Pthread_cond_wait(..);
+                    ADJUST GLOBAL VARIABLE
+            b) Release a permission:
+                ADJUST GLOBAL VARIABLE
+                Pthread_cond_signal(...)
+10.

@@ -1,0 +1,240 @@
+/* This file is for your main application css. */
+
+$body-bg: #EEE;
+
+@import "~bootstrap/scss/bootstrap";
+
+.recipe-column,
+.group-column,
+.bold-text {
+    font-weight: bold;
+}
+
+.container-whole {
+    padding: 5%;
+}
+
+.recipe-block {
+    padding: 60px;
+    background-color: dimgray;
+    margin-top: 20px;
+}
+
+.card-title {
+    border: 3px solid black;
+    padding: 15px;
+    background-color: lightgray;
+}
+
+.card-text,
+.card-title {
+    text-align: center;
+}
+
+.separator {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.api-watermark {
+    float: right;
+    background-color: white;
+    margin-top: 10px;
+}
+
+.pagination-block {
+    margin-top: 15px;
+}
+
+.page-link-btn:hover,
+.page-item {
+    cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+.profile-card {
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+.logged-in-text {
+    margin-right: 5px;
+}
+
+.menu-option {
+    text-align: center
+}
+
+.menu-option-container {
+    border: 2px solid black;
+    background-color: darkgray;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 10px;
+    margin: 20px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.footer {
+    left: 0;
+    bottom: 60px;
+    width: 100%;
+    height: 25%;
+    line-height: 40px;
+    background-color: antiquewhite;
+    overflow: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+}
+
+.chat-input-bar {
+    padding: 30px;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    background-color: lightgray;
+    height: 45px;
+}
+
+.chat-msg-input {
+    display: inline-block;
+    width: 85%;
+    position: relative;
+    bottom: 15px;
+}
+
+.chat-msg-btn {
+    display: inline-block;
+    width: 15%;
+    position: relative;
+    bottom: 15px;
+}
+
+.single-msg-block {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    display: flex
+}
+
+.group-chat-title {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: -5px;
+}
+
+.last-msg {
+    border-top: 1px solid black;
+}
+
+.footer-btn-container {
+    width: 100%;
+}
+
+.footer-btn-container-hidden {
+    top: 95%;
+}
+
+.btn-container {
+    text-align: center;
+}
+
+.move-down {
+    top: 92% !important;
+}
+
+.my-msg {
+    background-color: lightskyblue;
+}
+
+.not-my-msg {
+    background-color: palevioletred;
+}
+
+.msg-sender {
+    font-weight: bold;
+    width: 30%;
+    display: inline-block;
+}
+
+.msg {
+    width: 60%;
+    display: inline-block;
+    overflow-wrap: break-word;
+}
+
+.msg-delete-btn {
+    float: right;
+    height: 100%;
+}
+
+.join-group-select {
+    display: inline-block;
+    width: 50%;
+}
+
+.whole-footer {
+    overflow: auto;
+    height: 100mm;
+    margin-top: 75px;
+}
+
+.msg-delete {
+    width: 10%;
+    float: right;
+}
+
+.toggle-container {
+    margin-top: 7px;
+}
+
+.header-center {
+    text-align: center;
+}
+
+.homepage-container {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.troll-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+.search-btn {
+    width: 100%;
+}
+
+.search-row {
+    margin-right: 25%;
+    margin-left: 25%;
+}
+
+input[type="file"] {
+    margin-left: 10%;
+    margin-bottom: 15px;
+}
+
+.upload-btn {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.special-btn {
+    width: 100%;
+    margin-top: 10px;
+}

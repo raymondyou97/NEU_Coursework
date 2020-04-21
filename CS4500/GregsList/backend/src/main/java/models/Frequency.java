@@ -1,0 +1,5 @@
+package models;
+
+public enum Frequency {
+  ONETIME, HOURLY, DAILY, WEEKLY, BIWEEKLY, MONTHLY, YEARLY, WEEKDAY, WEEKEND, HOLIDAY, EMERGENCY
+}

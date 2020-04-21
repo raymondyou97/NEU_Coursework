@@ -1,0 +1,28 @@
+class CV {
+  Semaphore s, x; // Assume the semaphores are initialized to a count of 0
+  Lock             m;
+  int waiters = 0;
+  public CV(Lock m) { // Constructor
+    this.m             =             m;
+    s = new Semaphore(); s.count = 0; s.limit = 1;
+    x = new Semaphore(); x.count = 1; x.limit = 1;
+  }
+  public void Wait() { // Pre-condition: this thread holds "m"
+                       // The end user locked "m" when it entered the monitor.
+    x.sem_wait(); {
+      waiters++;
+    }
+    x.sem_post();
+    m.unlock();
+    s.sem_wait();
+    m.lock();
+  }
+  public void Signal() {
+    x.sem_wait(); {
+      if (waiters > 0) { 
+      waiters--; 
+      s.sem_post(); }
+    }
+    x.sem_post();
+  }
+}

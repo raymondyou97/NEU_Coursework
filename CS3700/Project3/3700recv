@@ -1,0 +1,133 @@
+#!/usr/bin/env python3
+
+import json
+import sys
+from datetime import datetime
+from socket import socket, AF_INET, SOCK_DGRAM
+from struct import Struct
+
+# for logging to stdout
+def log_normal(string):
+    # redirect print output to stdout
+    # this should be sys.stdout but dunno why its not working. fk it for now
+    sys.stderr.write(datetime.now().strftime("%H:%M:%S.%f") + " " + string + "\n")
+    sys.stderr.flush()
+
+# for logging to stderr
+def log_error(string):
+    # redirect print output to stderr
+    sys.stderr.write(datetime.now().strftime("%H:%M:%S.%f") + " " + string + "\n")
+    sys.stderr.flush()
+
+# connect to socket and setup attributes
+def setup_socket():
+    my_socket = socket(AF_INET, SOCK_DGRAM)
+    my_socket.bind(('127.0.0.1', 0))
+    my_socket.settimeout(20)
+    return my_socket
+
+packet_data_length = 1500 - 100
+
+# struct of int, char[], boolean, int
+packet_struct = Struct("I {}s ? I".format(packet_data_length))
+
+# mapping of packet sequences
+sequence_packet_map = {}
+
+# list of sequences
+received_sequences = []
+
+# last ack or rather the ack we expect back from sender
+last_ack = 0
+
+# Set up the socket
+my_socket = setup_socket()
+
+# Get port we bound to
+udp_port = my_socket.getsockname()[1]
+
+# deconstruct the C struct received
+def unpack_data(data):
+    parts = packet_struct.unpack(data)
+    sequence = parts[0]
+    data_spt = parts[1].split("\x00")[0]
+    eof = parts[2]
+    rest = parts[3]
+    tupl = (sequence, data_spt, eof, rest)
+    return tupl
+
+# send back an ack to the sender
+def deliver_ack(sequence, data):
+    my_dict = {"ack": sequence + len(data)}
+    msg = json.dumps(my_dict)
+    log_normal("[sending] {}".format(msg))
+    if my_socket.sendto(msg, addr) < len(msg):
+        log_error("[error] unable to fully send packet")
+    else:
+        log_normal("[sent] {}".format(str(sequence + len(data))))
+
+def termination_handler(flag):
+    if flag:
+        log_normal("[completed]")
+        sys.exit(0)
+    else:
+        return
+
+def process_data(packet):
+    # deconstruct packet
+    sequence, data, end_of_file_flag, _ = packet
+
+    # done if EOF found
+    termination_handler(end_of_file_flag)
+
+    global received_sequences # to allow mutation in a local context
+
+    # we have the given sequence, send back an ack
+    if sequence in received_sequences:
+        deliver_ack(sequence, data)
+        return
+
+    # add the new sequence to our list of received sequences
+    received_sequences.append(sequence)
+
+    current_sequence = None
+
+    global last_ack # to allow mutation in a local context
+
+    # got data, add to mapping and update next sequence to new sequence
+    if data is not None:
+        msg = "[recv data] {} ({}) {}".format(str(sequence), str(len(data)), "ACCEPTED (in-order)")
+        log_normal(msg)
+        sequence_packet_map[sequence] = packet
+        current_sequence = sequence
+
+        same_flag = last_ack == current_sequence
+        # print out the data to STDOUT in-order
+        while sequence_packet_map.get(current_sequence, None) and same_flag:
+            packet_tuple = sequence_packet_map.get(current_sequence)
+            packet = packet_tuple[1]
+            sys.stdout.write(packet)
+            last_ack += len(packet)
+            current_sequence += len(packet)
+    else:
+        log_normal("[recv data] IGNORED")
+        return
+
+    deliver_ack(sequence, data)
+
+log_normal("[bound] {}".format(str(udp_port)))
+# main loop where the 'receiving logic' happens
+while True:
+    result = my_socket.recvfrom(1500)
+    # If nothing is ready, we hit the timeout
+    if result:
+        (data, addr) = result
+        try:
+            data_pts = unpack_data(data)
+            process_data(data_pts)
+        except (ValueError, KeyError, TypeError) as exc:
+            log_error("[recv corrupt packet]")
+            raise exc
+    else:
+        log_error("[error] timeout")
+        sys.exit(-1)

@@ -1,0 +1,1 @@
+algorithm is incorrect as a deadlock is reached. This is shown in state (num = 8) right before error is reached for thr1.

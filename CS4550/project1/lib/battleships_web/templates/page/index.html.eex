@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="column">
+    <h1 class="title-block">Welcome To Battleships!</h1>
+    <div class="homepage-whole-block">
+      <div class="homepage-left-block">
+        <div class="login-block">
+          <%= form_for @conn, "/join", [as: :join], fn f -> %>
+          <p>Game Name: <%= text_input f, :name, class: "homepage-input" %></p>
+          <p>Your Name: <%= text_input f, :user, class: "homepage-input" %></p>
+          <p><%= submit "Join" %>
+          <% end %>
+          <img class="battleship-img" src="https://i.imgur.com/pLvzUkG.jpg">
+          <div class="source-img">Image src: https://images.fineartamerica.com/images-medium-large-5/world-war-two-battleship-cartoon-aloysius-patrimonio.jpg</div>
+        </div>
+      </div>
+      <div class ="homepage-right-block">
+        <div class="rules-header">Rules (taken from http://www.googlism.com/battleship.htm):</div>
+        <ul class="rules">
+          <li>Both players start by placing their ships on the board. This board is hidden from the other player and the aim is to pick spots for your vessels that your opponent will find hard to guess. A common tactic here is to spread your ships out as widely as possible.</li>
+          <li>The player who goes first picks a coordinate to attack and says it aloud to their opponent. This coordinate will be a combination of a number and a letter, to identify a square on the board they are attacking. For example, you might pick 'A5'.</li>
+          <li>The player attacking will then mark up their tracking board accordingly, with a red peg for squares that have found a target, and another color for those that have missed.</li>
+          <li>It is now time for the second player to take their turn, following exactly the same format.</li>
+          <li>Once a ship is fully destroyed, it is a player's obligation to confirm this fact to their opponent. Saying words to the effect of, 'you have destroyed by battleship,' is the usual form here.</li>
+          <li>The game is won by the player who successfully destroys all of their opponent's ships first - a moment that will be acknowledged by a statement such as, 'you have destroyed by fleet.'</li>
+        </ul>
+
+        <div class="rules-header">Caution:</div>
+        <ul class="rules">
+          <li>Both players can't join with the same name!</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="form-entry-location-wrapper">
+	<p>Enter your location:</p>
+	<form>
+		<fieldset>
+			<div>
+				<div class="col-xs-9">
+					<div>
+						<input type="text" class="form-control" [(ngModel)]="location" [ngModelOptions]="{standalone: true}">
+						<span><button type="button" class="btn btn-primary" (click)="emitResponse()">Submit</button></span>
+						<span><button type="button" class="btn btn-info" (click)="emitSkipResponse()">Skip</button></span>
+						<span><button type="button" class="btn btn-secondary" (click)="emitBackResponse()">Go Back</button></span>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>

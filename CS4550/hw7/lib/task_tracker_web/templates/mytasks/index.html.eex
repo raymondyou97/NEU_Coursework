@@ -1,0 +1,102 @@
+<div>
+    <h5 style="border-bottom: 1px solid black">My User Info:</h5>
+    <ul>
+        <li>
+            <strong>ID:</strong>
+            <%= @user.id %>
+        </li>
+
+        <li>
+            <strong>Email:</strong>
+            <%= @user.email %>
+        </li>
+
+        <li>
+            <strong>Name:</strong>
+            <%= @user.name %>
+        </li>
+
+        <li>
+            <strong>Supervisor ID:</strong>
+            <%= if @user.supervisor_id do %>
+                <%= @user.supervisor_id %>
+            <% else %>
+                No supervisor
+            <% end %>
+        </li>
+    </ul>
+</div>
+
+<div>
+    <h5 style="border-bottom: 1px solid black">My Tasks:</h5>
+    <div class="edit-task-block">
+        <div class="edit-task-text">Editting a timeblock of Task ID (<span class="task-id-here"></span>)... (Note: Date Time format must be in YYYY-MM-DD):</div>
+        <div>
+            Start datetime: <input class="start_datetime input-time" type="text" name="start_datetime">
+        </div>
+        <div>
+            End datetime: <input class="end_datetime input-time" type="text" name="end_datetime">
+        </div>
+        <button class="btn btn-primary submit-edit-changes">Submit</button>
+        <button class="btn btn-secondary cancel-edit-changes">Cancel</button>
+        <div class="success-edit">
+            <div class="success-edit-text"></div>
+            <button class="btn btn-info hide-edit-changes">Hide</button>
+        </div>
+        <div class="error-edit"></div>
+    </div>
+    <%= if length(@tasks) > 0 do %>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Task ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Completed?</th>
+                    <th>Assigned To:</th>
+                    <th>Timeblocks of Work:</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%= for task <- @tasks do %>
+                <tr>
+                    <td class="task-id"><%= task.id %></td>
+                    <td><%= task.title %></td>
+                    <td><%= task.description %></td>
+                    <td><%= task.completed %></td>
+                    <td><%= task.user.name %></td>
+                    <td>
+                        <ol class="timeblock-container">
+                            <%= for timeblock <- @timeblocks do %>
+                            <%= if task.id == timeblock.task_id do %>
+                            <li class="timeblock-entry">
+                                <div class="timeblock-info">
+                                    <div>Start datetime: <span class="time-block-value"><%= timeblock.start %></span></div>
+                                    <div>End datetime: <span class="time-block-value"><%= timeblock.end %></span></div>
+                                </div>
+                                <div class="timeblock-btns">
+                                    <button id=<%= timeblock.id %> class="btn btn-info btn-sm timeblock-edit">Edit</button>
+                                    <button id=<%= timeblock.id %> class="btn btn-warning btn-sm timeblock-delete">Delete</button>
+                                </div>
+                            </li>
+                            <% end %>
+                            <% end %>
+                        </ol>
+                    </td>
+                    <%= if task.completed do %>
+                    <td>Task completed</td>
+                    <% else %>
+                    <td>
+                        <button class="btn btn-success start-task-btn btn-sm">Start Work</button>
+                        <button class="btn btn-danger end-task-btn btn-sm">End Work</button>
+                    </td>
+                    <% end %>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    <% else %>
+        <div>No tasks</div>
+    <% end %>
+</div>

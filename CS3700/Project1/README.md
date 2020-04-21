@@ -1,0 +1,3 @@
+# Summary
+
+For high level approach, I knew I wanted to use Python as it had simple libraries for connecting to low-level networking layers, etc. My approach was to first make a successful socket connection to the host and the correct port, then focus on doing the actual assignment. Some challenges I faced were properly reading the entire socket message as just getting the message once sometimes didn't give the entire message and I would have to do it multiple times. Furthermore, I had to properly exclude the new line delimiter. In terms of testing my code, I just printed out test messages into STDOUT.

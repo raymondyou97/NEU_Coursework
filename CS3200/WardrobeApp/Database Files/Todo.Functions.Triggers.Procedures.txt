@@ -1,0 +1,61 @@
+ROUGH TODO LIST
+
+Functions:
+    1. getNumberOfOutfitsForUser(UserID)
+    2. getNumberOfArticlesForUser(UserID)
+    3. doesUserHaveOutfitID(UserID, OutfitID)
+    4. doesUserHaveArticleID(UserID, ArticleID)
+    5. getUsername(UserID)
+    6. getFullName(UserID)
+    7. getAge(UserID)
+    8. getGender(UserID)
+    9. getEmailAddress(UserID)
+    10. CheckIfUsernameExists(Username)
+        -return 1 for true or 0 for false
+    11. getDescription(OutfitID)
+    12. getNumberOfArticlesInOutfit(outfitID)
+    13. CheckIfOutfitHasArticle(outfitID, articleID)
+    14. getSize(articleID)
+    15. getColor(articleID)
+    16. getBrand(articleID)
+    17. getMaterial(articleID)
+    18. getPrice(articleID)
+    19. getDescription(articleID)
+    20. getDatePurchased(articleID)
+    21. getType(articleID)
+    22. getTypeID(articleID)
+    23. getType(typeID)
+    24. getTypeDescription(typeID)
+    
+Procedures:
+    1. returnAllOutfitIDsForUser(UserID)
+    2. returnAllArticleIDsForUser(UserID)
+    2. returnAllArticleIDsNotInOutfit(articleID, outfitID)
+    3. registerAccount(FName, LName, age, gender, emailAddress, username, password)
+        -"INSERT INTO User (....) VALUE (.....);"
+        -make sure userID is auto-incrementing
+    4. addOutfit(NumItems, UserID, OutfitDescription)
+        -"INSERT INTO ...."
+        -make sure OutfitID is auto-incrementing
+    5. addType(Type, TypeDescription)
+        -"INSERT INTO ...."
+    6. addArticle(articleType, size, color, brand, material, price, userID, articleDescription, datePurchased)
+        -"INSERT INTO ...."
+    7. addArticleToOutfit(articleID, outfitID)
+        -"INSERT INTO ...."
+    8. removeArticleToOutfit(articleID, outfitID)
+        -"DELETE FROM ..."
+    9. updateDescription(description)
+        -"UPDATE Outfit SET ......"
+    10. deleteOutfit(outfitID)
+        -"DELETE FROM ..."
+    11. getAllArticleIDsInOutfit(outfitID)
+    12. updateArticleQualities(..)
+        -look at updateQualities in Article.java
+    13. deleteArticle(articleID)
+        -look at deleteArticle in Article.java
+        
+Triggers:
+    1. after deleting an outfit from Outfit, delete all rows with that outfitID in OutfitToArticle
+    2. after deleting an article from OutfitArticle, delete all rows with that articleID in OutfitToArticle
+    

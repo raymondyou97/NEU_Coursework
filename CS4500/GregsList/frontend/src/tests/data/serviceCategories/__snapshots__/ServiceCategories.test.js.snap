@@ -1,0 +1,255 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot renders 1`] = `
+<div>
+  <h3
+    className="service-category-title"
+  >
+    Service Categories
+  </h3>
+  <table
+    className="service-category-table"
+  >
+    <tbody
+      className="service-category-table-body"
+    >
+      <tr
+        className="service-category-columns"
+      >
+        <td>
+          Title
+        </td>
+        <td>
+          Description
+        </td>
+        <td />
+      </tr>
+      <tr
+        className="service-category-inputs"
+      >
+        <td>
+          <input
+            className="service-category-title-input"
+            onChange={[Function]}
+            placeholder="Title"
+            type="text"
+            value=""
+          />
+        </td>
+        <td>
+          <input
+            className="service-category-description-input"
+            onChange={[Function]}
+            placeholder="Description"
+            type="text"
+            value=""
+          />
+        </td>
+        <td
+          className="service-category-input-buttons"
+        >
+          <button
+            className="service-category-add-button"
+            onClick={[Function]}
+          >
+            Add
+          </button>
+          <button
+            className="service-category-update-button"
+            onClick={[Function]}
+          >
+            Update
+          </button>
+        </td>
+      </tr>
+      <tr
+        className="service-category-details"
+      >
+        <td
+          onClick={[Function]}
+        >
+          Car Services
+        </td>
+        <td
+          onClick={[Function]}
+        >
+          All things related to taking care of your car
+        </td>
+        <td
+          className="service-category-buttons"
+        >
+          <button
+            className="service-category-delete-button"
+            onClick={[Function]}
+          >
+            Delete
+          </button>
+          <button
+            className="service-category-edit-button"
+            onClick={[Function]}
+          >
+            Edit
+          </button>
+        </td>
+      </tr>
+      <tr
+        className="service-category-details"
+      >
+        <td
+          onClick={[Function]}
+        >
+          Home Care
+        </td>
+        <td
+          onClick={[Function]}
+        >
+          For all things related to taking care of the home
+        </td>
+        <td
+          className="service-category-buttons"
+        >
+          <button
+            className="service-category-delete-button"
+            onClick={[Function]}
+          >
+            Delete
+          </button>
+          <button
+            className="service-category-edit-button"
+            onClick={[Function]}
+          >
+            Edit
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`Users component updates when there is user data 1`] = `
+<div>
+  <h3
+    className="service-category-title"
+  >
+    Service Categories
+  </h3>
+  <table
+    className="service-category-table"
+  >
+    <tbody
+      className="service-category-table-body"
+    >
+      <tr
+        className="service-category-columns"
+      >
+        <td>
+          Title
+        </td>
+        <td>
+          Description
+        </td>
+        <td />
+      </tr>
+      <tr
+        className="service-category-inputs"
+      >
+        <td>
+          <input
+            className="service-category-title-input"
+            onChange={[Function]}
+            placeholder="Title"
+            type="text"
+            value="Car Services"
+          />
+        </td>
+        <td>
+          <input
+            className="service-category-description-input"
+            onChange={[Function]}
+            placeholder="Description"
+            type="text"
+            value="All things related to taking care of your car"
+          />
+        </td>
+        <td
+          className="service-category-input-buttons"
+        >
+          <button
+            className="service-category-add-button"
+            onClick={[Function]}
+          >
+            Add
+          </button>
+          <button
+            className="service-category-update-button"
+            onClick={[Function]}
+          >
+            Update
+          </button>
+        </td>
+      </tr>
+      <tr
+        className="service-category-details"
+      >
+        <td
+          onClick={[Function]}
+        >
+          Car Services
+        </td>
+        <td
+          onClick={[Function]}
+        >
+          All things related to taking care of your car
+        </td>
+        <td
+          className="service-category-buttons"
+        >
+          <button
+            className="service-category-delete-button"
+            onClick={[Function]}
+          >
+            Delete
+          </button>
+          <button
+            className="service-category-edit-button"
+            onClick={[Function]}
+          >
+            Edit
+          </button>
+        </td>
+      </tr>
+      <tr
+        className="service-category-details"
+      >
+        <td
+          onClick={[Function]}
+        >
+          Home Care
+        </td>
+        <td
+          onClick={[Function]}
+        >
+          For all things related to taking care of the home
+        </td>
+        <td
+          className="service-category-buttons"
+        >
+          <button
+            className="service-category-delete-button"
+            onClick={[Function]}
+          >
+            Delete
+          </button>
+          <button
+            className="service-category-edit-button"
+            onClick={[Function]}
+          >
+            Edit
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

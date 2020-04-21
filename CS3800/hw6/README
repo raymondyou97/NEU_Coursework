@@ -1,0 +1,25 @@
+This directory contains an implementation of the While and
+While/Fork languages.
+
+Files:
+
+    whileFork.txt   syntax of the While/Fork language
+    whileFork.pg    LL(1) grammar for the While/Fork language
+    tokens.scm      regular expressions for tokens of While/Fork
+
+    dfa.scm         the DFA generated from tokens.scm
+    parser.scm      the LL(1) parser generated from whileFork.pg
+    lexer.scm       lexical analyzer for WhileFork (uses dfa.scm)
+    actions.scm     action routines called by the parser
+    ast.scm         abstract syntax trees as an abstract data type
+    interp.scm      interpreter of While/Fork abstract syntax trees
+    whileFork.sps   interpreter of While/Fork programs
+    whileFork       executable shell that calls whileFork.sps
+
+    test1.wf        accepts prime numbers
+    test2.wf        accepts composite numbers greater than 2
+    test3.wf        accepts ASCII palindromes of even length
+    test4.wf        accepts ASCII palindromes of even length
+
+The test2.wf and test3.wf programs use a fork statement.
+The test1.wf and test4.wf programs do not use fork statements.

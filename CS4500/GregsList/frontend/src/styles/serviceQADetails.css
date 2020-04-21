@@ -1,0 +1,34 @@
+.service-q-a-details-whole-block {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid black;
+  min-height: 10cm;
+  justify-content: space-evenly;
+  width: 75%;
+  margin-left: 12.5%;
+}
+
+.service-q-a-details-title {
+  font-weight: bold;
+  border-bottom: 3px solid black;
+}
+
+.service-q-a-details-button {
+  width: 20%;
+  margin: 5px;
+  color: black;
+}
+
+.service-q-a-details-field {
+  text-align: left;
+  padding-left: 9%;
+}
+
+.service-q-a-details-field-header {
+  min-width: 30%;
+  display: inline-block;
+}
+
+.service-q-a-details-field-input {
+  min-width: 60%;
+}

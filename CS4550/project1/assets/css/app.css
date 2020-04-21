@@ -1,0 +1,269 @@
+/* This file is for your main application css. */
+
+@import "~milligram/dist/milligram";
+
+body {
+    padding: 20px;
+}
+
+p {
+    margin-bottom: 0px;
+}
+
+#root {
+    border: 1px solid black;
+}
+
+.footer-text {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.player-text {
+    padding-bottom: 20px;
+}
+
+.chat-room-title {
+    padding-bottom: 20px;
+    color: black;
+    font-weight: bold;
+}
+
+.whole-container {
+    height: 100%;
+}
+
+.tile-container {
+    line-height: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.board-container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 40%;
+    padding: 40px;
+    border-top: 1px solid black;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 20%;
+    padding: 40px;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+}
+
+.left-board {
+    border-right: 1px solid black;
+}
+
+.tile-row {
+    display: inline-grid;
+    width: 100%;
+    grid-template-columns: repeat(10, 1fr);
+}
+
+.tile {
+    border: 1px solid black;
+    font-size: 50px;
+    display: inherit;
+    background-color: lightgray;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-message {
+    font-size: 30px;
+    color: red;
+    border-bottom: 1px solid black;
+    text-align: center;
+    padding: 150px;
+}
+
+.personal-container {
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+.friendly {
+    color: green;
+    text-align: center;
+}
+
+.enemy {
+    color: red;
+    text-align: center;
+}
+
+.toggle-display {
+    display: none !important;
+}
+
+.waiting-text {
+    font-size: 30px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: blue;
+    background-color: slategray;
+}
+
+.global-msg {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    border-bottom: 1px solid black;
+}
+
+.ready-btn {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.disable-btn {
+    cursor: not-allowed;
+    pointer-events: none;
+    background-color: #606c76;
+    border-color: #606c76;
+    color: #fff;
+    outline: 0;
+}
+
+.player-msg {
+    padding: 25px;
+    font-weight: bold;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: indianred;
+}
+
+.active-btn {
+    background-color: #606c76 !important;
+    border-color: #606c76 !important;
+    color: #fff !important;
+    outline: 0 !important;
+}
+
+img {
+    width: 95%;
+    height: 95%;
+    display: block;
+    margin: 0 auto;
+}
+
+button:hover {
+    background-color: #9b4dca;
+    font-weight: bold;
+}
+
+button {
+    margin-right: 25px;
+}
+
+.ship-preview {
+    background-color: lightslategrey;
+}
+
+.ship-preview-collision, .ship-preview-attack {
+    background-color: indianred;
+}
+
+.homepage-input {
+    width: 90% !important;
+    display: block;
+}
+
+.homepage-whole-block {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.homepage-left-block {
+    flex: 50%;
+    border-left: 1px solid black;
+}
+
+.homepage-right-block {
+    flex: 50%;
+}
+
+.rules-header {
+    margin-left: 5%;
+    border-bottom: 1px solid black;
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.login-block,
+.rules {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.title-block {
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: center;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
+
+.title-battleships {
+    margin-bottom: 0px;
+}
+
+.battleship-img {
+    height: 50%;
+    width: 65%;
+    display: block;
+    margin: 0 auto;
+}
+
+.source-img {
+    font-size: 10px;
+    text-align: center;
+}
+
+.chat-messages {
+    height: 95%;
+    background-color: lightgray;
+}
+
+.chat-messages-2 {
+    list-style: none;
+    padding: 15px;
+    max-height: 604px;
+    overflow: auto;
+    margin-bottom: 0px;
+}
+
+.msg-sender {
+    font-weight: bold;
+}
+
+.msg {
+    padding-top: 15px;
+}
+
+.message-input-box {
+    margin-bottom: 0px;
+}
+
+.play-again {
+    text-align: center;
+    margin-top: 10px;
+}

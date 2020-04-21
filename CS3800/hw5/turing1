@@ -1,0 +1,170 @@
+; Turing Machines are more powerful than pushdown automata.
+; 
+; B = { a^n b^n c^n | n \geq 0 } is not a CFL, but the
+; Turing machine described below decides that language.
+
+; The general algorithm of our decider for B goes like this:
+; 
+; Starting in configuration
+; 
+;     q0 w
+; 
+; insert a special marker on either side of the input:
+; 
+;     q1 < w >
+; 
+; for each leading a,
+; change the a to x and replace the matching b by y:
+; 
+;     q2 < x^n y^n w' >
+; 
+; if n = 0, accept if w' is the empty string;
+; if n > 0, reject unless w' begins with a c:
+; 
+;     q3 < x^n y^n c^i w'' >
+; 
+; for each leading x,
+; change the x to a and replace the matching c by z:
+; 
+;     q4 < a^i y^i z^i w''' >
+; 
+; accept if w''' is the empty string; otherwise reject
+
+(
+
+  ; Macro 0:  insert a special marker on either side of the input.
+
+  (q0 (_ < R q000)
+      (a < R q001)
+      (b < R q002)
+      (c < R q003))
+
+  ; add final marker and return to the beginning
+
+  (q000 (_ > L q009))
+
+  ; write an a and copy previous contents one square to the right
+
+  (q001 (_ a R q000)
+        (a a R q001)
+        (b a R q002)
+        (c a R q003))
+
+  ; write a b and copy previous contents one square to the right
+
+  (q002 (_ b R q000)
+        (a b R q001)
+        (b b R q002)
+        (c b R q003))
+
+  ; write a c and copy previous contents one square to the right
+
+  (q003 (_ c R q000)
+        (a c R q001)
+        (b c R q002)
+        (c c R q003))
+
+  ; return to start of tape and begin next phase
+
+  (q009 (< < L q1)
+        (* * L q009))
+
+  ; Macro 1:  for each leading a, change the a to x and replace
+  ; the matching b by y.
+
+  ; find the leading a
+
+  (q1 (< < R q1)
+      (a x R q101)
+      (x x R q1)
+      (y y R q109)
+      (b b L reject)
+      (c c L reject)
+      (> > L q109))
+
+  ; find the matching b
+
+  (q101 (a a R q101)
+        (y y R q101)
+        (b y L q108)
+        (* * L reject))
+
+  ; return to start of tape
+
+  (q108 (< < L q1)
+        (* * L q108))
+
+  ; return to start of tape and begin next phase
+
+  (q109 (< < L q2)
+        (* * L q109))
+
+  ; Macro 2:  the configuration is q2 < x^n y^n w' >;
+  ; if n = 0, accept if and only w' is the empty string;
+  ; otherwise reject unless w' starts with a c
+
+  ; find out whether n = 0
+
+  (q2 (< < R q2)
+      (x x R q202)
+      (> > L accept))
+
+  ; n > 0, so make sure w' starts with a c
+
+  (q202 (x x R q202)
+        (y y R q202)
+        (c c L q209)
+        (* * L reject))
+
+  ; return to start of tape
+
+  (q209 (< < L q3)
+        (* * L q209))
+
+  ; Macro 3:  the configuration is q3 < a^i x^(n-i) y^n z^i w'' >,
+  ; where n > 0; for each leading x, change the x to a and replace
+  ; the matching c by z:
+
+  ; find the leading x
+
+  (q3 (< < R q3)
+      (a a R q3)
+      (x a R q301)
+      (y y L q309)
+      (* * L reject))
+
+  ; replace the matching c by z
+
+  (q301 (x x R q301)
+        (y y R q301)
+        (z z R q301)
+        (c z L q308)
+        (* * L reject))
+
+  ; return to start of tape
+
+  (q308 (< < L q3)
+        (* * L q308))
+
+  ; return to start of tape and begin next phase
+
+  (q309 (< < L q4)
+        (* * L q309))
+
+  ; Macro 4:  the configuration is q4 < a^i y^i z^i w''' >, and
+  ; i > 0; accept if and only if w''' is the empty string
+
+  ; scan to first z
+
+  (q4 (< < R q4)
+      (a a R q4)
+      (y y R q4)
+      (z z R q401)
+      (* * L reject))
+
+  ; scan for the first non-z, which should be >
+
+  (q401 (z z R q401)
+        (> > L accept)
+        (* * L reject))
+)

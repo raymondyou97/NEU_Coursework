@@ -1,0 +1,54 @@
+---------------------------- MODULE bank_account ----------------------------
+\* Copyright (c) 2017, Gene Cooperman.  May be freely distributed
+\* and modified as long as this copyright notice remains.
+
+\* Joint bank account by husband and wife; C statements are assumed atomic.
+
+EXTENDS Naturals, Sequences, TLC  \* Sequences required for "procedure" stmt
+CONSTANT N \* N is number of iterations.  Assign to it in model overview.
+
+(*
+--algorithm bank {
+  variables account = 100, cash = [i \in {"husband", "wife"} |-> 10],
+            iterations = [i \in  {"husband", "wife"} |-> N];
+    \* Note that we need to define iterations["husband"] and iterations["wife"].
+    \*   We do _not_ want a single global variable, iterations, that is
+    \*   shared between "husband" and "wife".
+    \* In model, replace defaultInitValue by value for iterations
+
+  procedure withdraw(amount1) {
+    withdraw_start: account := account - amount1;
+     w1:            cash[self] := cash[self] + amount1;
+     w2:            return;
+  }
+
+  procedure deposit(amount2) {
+    deposit_start: account := account + amount2;
+    d1:            cash[self] := cash[self] - amount2;
+    d2:            return;
+  }
+  
+  process (spouse \in {"husband", "wife"})
+    variable total;
+  { start: while (iterations[self] > 0) {
+      \* We hard-wire the max amount below, but this could have been a CONSTANT.
+      s1: with (amount \in 1..2)
+            call withdraw(amount);
+      s2: with (amount \in 1..2)
+            call deposit(amount);
+      s3: iterations[self] := iterations[self] - 1;
+          total := account + cash["husband"] + cash["wife"];
+      };
+      assert iterations[self] = 0;
+      
+      if (iterations["husband"] = 0 /\ iterations["wife"] = 0) {
+        total := account + cash["husband"] + cash["wife"];
+        print total;
+        assert total = 120 ;
+      }
+  } \* end process block
+
+} \* end algorithm
+*)
+
+====================

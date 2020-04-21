@@ -1,0 +1,63 @@
+; A Turing machine that recognizes { a^i b^j c^k | i,k,l >= 0 and i + j = k}
+; Accepts: (), (a b c c), (a a b c c c), (a b b c c c)
+; Doesnt Accept: (a b c), (a a b b c c), (a)
+
+; Algorithm
+; 0. Place markers (<, >)
+; 1. For every a, cross off a c
+; 2. For every b, cross off a c
+; 3. If any c's remain, reject. Else accept.
+
+(
+    ; place < marker
+    (q0 (a < R q01)
+		(b b R q1)
+		(_ _ R accept)
+        (* * R reject))
+		
+	; check for a's	
+	(q01 (a a R q01)
+		 (b a R q1)
+		 (* * R reject))
+		 
+	; check for b's
+	(q1 (b b R q1)
+		(c b R q2)
+        (* * R reject))
+
+	; check for c's
+	(q2 (c c R q2)
+		(_ c R q3)
+		(* * R reject))
+		
+	; place > marker
+	(q3 (_ > R q4)
+		(* * R reject))
+		
+	; go back to < marker
+	(q4 (_ _ L q5))
+	(q5 (< < L q6)
+		(* * L q5))
+		
+	; begin algo
+	(q6 (< < R q6)
+		(a X R q7)
+		(b X R q8)
+		(X X R q6)
+		(> > R accept)
+		(c _ R reject))
+		
+	; one a was crossed off, go cross off a c
+	(q7 (c X R q100)
+		(* * R q7)
+		(_ _ R reject))
+	
+	; one b was crossed off, go cross off a c
+	(q8 (c X R q100)
+		(* * R q8)
+		(_ _ R reject))
+	
+	; one c was crossed off, go back to beginning
+	(q100 (> > L q5)
+		  (* * R q100))
+)

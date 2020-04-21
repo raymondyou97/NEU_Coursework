@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "username": "u",
+    "password": null,
+    "firstName": "f",
+    "lastName": "l",
+    "zipCode": null,
+    "reviewsOfMe": [],
+    "myReviewsOfOthers": [],
+    "frequentlyAskedAnswers": [],
+    "serviceAnswers": [
+      {
+        "id": 1,
+        "trueFalseAnswer": true,
+        "maxRangeAnswer": null,
+        "minRangeAnswer": null,
+        "choiceAnswer": null,
+        "serviceQuestion": {
+          "id": 1,
+          "question": "service true/false q",
+          "type": "TrueFalse",
+          "choices": "true, false"
+        }
+      },
+      {
+        "id": 2,
+        "choiceAnswer": "a, c",
+        "serviceQuestion": {
+          "id": 2,
+          "question": "multiple choice q",
+          "type": "MultipleChoice",
+          "choices": "a, b, c"
+        }
+      }
+    ],
+    "services": [
+      {
+        "id": 26,
+        "title": "housekeeping",
+        "popularity": 7,
+        "serviceQuestions": [
+          {
+            "id": 1,
+            "question": "service true/false q",
+            "type": "TrueFalse",
+            "choices": "true, false",
+            "serviceAnswer": {
+              "id": 1,
+              "response": false
+            }
+          },
+          {
+            "id": 2,
+            "question": "service multiple choice q",
+            "type": "MultipleChoice",
+            "choices": "a, b, c",
+            "serviceAnswer": {
+              "id": 2,
+              "response": "a, c"
+            }
+          },
+          {
+            "id": 3,
+            "question": "service range q",
+            "type": "Range",
+            "choices": "0, 100",
+            "serviceAnswer": {
+              "id": 3,
+              "response": "0, 3"
+            }
+          }
+        ]
+      },
+      {
+        "id": 27,
+        "title": "t",
+        "popularity": 10,
+        "serviceQuestions": []
+      }
+    ]
+  }
+]

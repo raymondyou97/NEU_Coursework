@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot renders with no service questions 1`] = `
+<div>
+  <div
+    className="justify-content-center pad-bottom"
+  >
+    <h3>
+      Filters
+    </h3>
+  </div>
+</div>
+`;
+
+exports[`Snapshot renders with service questions 1`] = `
+<div>
+  <div
+    className="justify-content-center pad-bottom"
+  >
+    <h3>
+      Filters
+    </h3>
+  </div>
+  <div
+    className="service-filter-question"
+  >
+    <h5>
+      Question 
+      1
+      : 
+      question1
+    </h5>
+    <div
+      className="multiple-choice-option"
+    >
+      <label>
+        <input
+          name={1}
+          type="radio"
+        />
+         
+        choice1
+      </label>
+    </div>
+    <div
+      className="multiple-choice-option"
+    >
+      <label>
+        <input
+          name={1}
+          type="radio"
+        />
+         
+        choice2
+      </label>
+    </div>
+    <div
+      className="multiple-choice-option"
+    >
+      <label>
+        <input
+          name={1}
+          type="radio"
+        />
+         
+        choice3
+      </label>
+    </div>
+    <div
+      className="multiple-choice-option"
+    >
+      <label>
+        <input
+          name={1}
+          type="radio"
+        />
+         
+        choice4
+      </label>
+    </div>
+  </div>
+  <div
+    className="service-filter-question"
+  >
+    <h5>
+      Question 
+      2
+      : 
+      question2
+    </h5>
+    <span
+      className="true-false-option"
+    >
+      <label>
+        <input
+          name={2}
+          type="radio"
+        />
+         
+        true
+      </label>
+    </span>
+    <span
+      className="true-false-option"
+    >
+      <label>
+        <input
+          name={2}
+          type="radio"
+        />
+         
+        false
+      </label>
+    </span>
+  </div>
+  <div
+    className="service-filter-question"
+  >
+    <h5>
+      Question 
+      3
+      : 
+      question3
+    </h5>
+    <div
+      className="range-question"
+    >
+      <input
+        className="form-control-range"
+        id={3}
+        max="10"
+        min="0"
+        onChange={[Function]}
+        type="range"
+      />
+      <p>
+        Value: 
+        <span
+          id="val3"
+        />
+      </p>
+    </div>
+  </div>
+</div>
+`;

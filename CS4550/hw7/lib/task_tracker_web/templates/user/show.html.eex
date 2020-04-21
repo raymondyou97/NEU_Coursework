@@ -1,0 +1,30 @@
+<h1>Show User</h1>
+
+<ul>
+    <li>
+        <strong>ID:</strong>
+        <%= @user.id %>
+    </li>
+
+    <li>
+        <strong>Email:</strong>
+        <%= @user.email %>
+    </li>
+
+    <li>
+        <strong>Name:</strong>
+        <%= @user.name %>
+    </li>
+
+    <li>
+        <strong>Supervisor ID:</strong>
+        <%= if @user.supervisor_id do %>
+        <%= @user.supervisor_id %>
+        <% else %>
+        No supervisor
+        <% end %>
+    </li>
+</ul>
+
+<span><%= link "Edit", to: Routes.user_path(@conn, :edit, @user) %></span>
+<span><%= link "Back", to: Routes.user_path(@conn, :index) %></span>

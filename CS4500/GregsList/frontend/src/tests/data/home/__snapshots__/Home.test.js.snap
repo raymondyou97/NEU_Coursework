@@ -1,0 +1,776 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Empty snapshot renders 1`] = `
+<div
+  className="home"
+>
+  <div
+    className="header"
+  >
+    <h1>
+      Find professionals near you
+    </h1>
+    <div
+      className="header-links"
+    >
+      <a
+        className="link"
+        href="SignUp"
+      >
+        Sign up
+      </a>
+      <a
+        className="link"
+        href="LogIn"
+      >
+        Log in
+      </a>
+    </div>
+  </div>
+  <div
+    className="search-section"
+  >
+    <div
+      className="search-bars input-group"
+    >
+      <input
+        className="form-control"
+        placeholder="Search for providers"
+      />
+      <input
+        className="form-control"
+        placeholder="Zip code"
+      />
+      <div
+        className="input-group-append"
+      >
+        <button
+          className="search-button btn btn-primary"
+          disabled={false}
+          type="button"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Snapshot with data renders 1`] = `
+<div
+  className="home"
+>
+  <div
+    className="header"
+  >
+    <h1>
+      Find professionals near you
+    </h1>
+    <div
+      className="header-links"
+    >
+      <a
+        className="link"
+        href="SignUp"
+      >
+        Sign up
+      </a>
+      <a
+        className="link"
+        href="LogIn"
+      >
+        Log in
+      </a>
+    </div>
+  </div>
+  <div
+    className="search-section"
+  >
+    <div
+      className="search-bars input-group"
+    >
+      <input
+        className="form-control"
+        placeholder="Search for providers"
+      />
+      <input
+        className="form-control"
+        placeholder="Zip code"
+      />
+      <div
+        className="input-group-append"
+      >
+        <button
+          className="search-button btn btn-primary"
+          disabled={false}
+          type="button"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="service-categories-container"
+  >
+    <div
+      className="service-categories btn-group"
+      role="group"
+    >
+      <button
+        className="btn btn-link"
+        disabled={false}
+        type="button"
+      >
+        <a
+          href="services#1"
+        >
+          <div
+            className="service-category-button"
+          >
+            test1
+          </div>
+        </a>
+      </button>
+      <button
+        className="btn btn-link"
+        disabled={false}
+        type="button"
+      >
+        <a
+          href="services#2"
+        >
+          <div
+            className="service-category-button"
+          >
+            test2
+          </div>
+        </a>
+      </button>
+      <button
+        className="btn btn-link"
+        disabled={false}
+        type="button"
+      >
+        <a
+          href="services#3"
+        >
+          <div
+            className="service-category-button"
+          >
+            test3
+          </div>
+        </a>
+      </button>
+      <button
+        className="btn btn-link"
+        disabled={false}
+        type="button"
+      >
+        <a
+          href="services#4"
+        >
+          <div
+            className="service-category-button"
+          >
+            test4
+          </div>
+        </a>
+      </button>
+      <button
+        className="btn btn-link"
+        disabled={false}
+        type="button"
+      >
+        <a
+          href="services"
+        >
+          <div
+            className="service-category-button"
+          >
+            More
+          </div>
+        </a>
+      </button>
+    </div>
+  </div>
+  <div>
+    <ul
+      className="nav nav-tabs"
+    >
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="#"
+          onClick={[Function]}
+        >
+          test1
+        </a>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="#"
+          onClick={[Function]}
+        >
+          test2
+        </a>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="#"
+          onClick={[Function]}
+        >
+          test3
+        </a>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="#"
+          onClick={[Function]}
+        >
+          test4
+        </a>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="#"
+          onClick={[Function]}
+        >
+          test5
+        </a>
+      </li>
+    </ul>
+    ;
+    <br />
+  </div>
+</div>
+`;
+
+exports[`Snapshot with less data renders 1`] = `
+<div
+  className="home"
+>
+  <div
+    className="header"
+  >
+    <h1>
+      Find professionals near you
+    </h1>
+    <div
+      className="header-links"
+    >
+      <a
+        className="link"
+        href="SignUp"
+      >
+        Sign up
+      </a>
+      <a
+        className="link"
+        href="LogIn"
+      >
+        Log in
+      </a>
+    </div>
+  </div>
+  <div
+    className="search-section"
+  >
+    <div
+      className="search-bars input-group"
+    >
+      <input
+        className="form-control"
+        placeholder="Search for providers"
+      />
+      <input
+        className="form-control"
+        placeholder="Zip code"
+      />
+      <div
+        className="input-group-append"
+      >
+        <button
+          className="search-button btn btn-primary"
+          disabled={false}
+          type="button"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="service-categories-container"
+  >
+    <div
+      className="service-categories btn-group"
+      role="group"
+    >
+      <button
+        className="btn btn-link"
+        disabled={false}
+        type="button"
+      >
+        <a
+          href="services#1"
+        >
+          <div
+            className="service-category-button"
+          >
+            test1
+          </div>
+        </a>
+      </button>
+      <button
+        className="btn btn-link"
+        disabled={false}
+        type="button"
+      >
+        <a
+          href="services#2"
+        >
+          <div
+            className="service-category-button"
+          >
+            test2
+          </div>
+        </a>
+      </button>
+      <button
+        className="btn btn-link"
+        disabled={false}
+        type="button"
+      >
+        <a
+          href="services#3"
+        >
+          <div
+            className="service-category-button"
+          >
+            test3
+          </div>
+        </a>
+      </button>
+    </div>
+  </div>
+  <div>
+    <ul
+      className="nav nav-tabs"
+    >
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="#"
+          onClick={[Function]}
+        >
+          test1
+        </a>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="#"
+          onClick={[Function]}
+        >
+          test2
+        </a>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="#"
+          onClick={[Function]}
+        >
+          test3
+        </a>
+      </li>
+    </ul>
+    ;
+    <br />
+  </div>
+</div>
+`;
+
+exports[`Snapshot with tab selected renders 1`] = `
+<div
+  className="home"
+>
+  <div
+    className="header"
+  >
+    <h1>
+      Find professionals near you
+    </h1>
+    <div
+      className="header-links"
+    >
+      <a
+        className="link"
+        href="SignUp"
+      >
+        Sign up
+      </a>
+      <a
+        className="link"
+        href="LogIn"
+      >
+        Log in
+      </a>
+    </div>
+  </div>
+  <div
+    className="search-section"
+  >
+    <div
+      className="search-bars input-group"
+    >
+      <input
+        className="form-control"
+        placeholder="Search for providers"
+      />
+      <input
+        className="form-control"
+        placeholder="Zip code"
+      />
+      <div
+        className="input-group-append"
+      >
+        <button
+          className="search-button btn btn-primary"
+          disabled={false}
+          type="button"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="service-categories-container"
+  >
+    <div
+      className="service-categories btn-group"
+      role="group"
+    >
+      <button
+        className="btn btn-link"
+        disabled={false}
+        type="button"
+      >
+        <a
+          href="services#1"
+        >
+          <div
+            className="service-category-button"
+          >
+            test1
+          </div>
+        </a>
+      </button>
+      <button
+        className="btn btn-link"
+        disabled={false}
+        type="button"
+      >
+        <a
+          href="services#2"
+        >
+          <div
+            className="service-category-button"
+          >
+            test2
+          </div>
+        </a>
+      </button>
+      <button
+        className="btn btn-link"
+        disabled={false}
+        type="button"
+      >
+        <a
+          href="services#3"
+        >
+          <div
+            className="service-category-button"
+          >
+            test3
+          </div>
+        </a>
+      </button>
+      <button
+        className="btn btn-link"
+        disabled={false}
+        type="button"
+      >
+        <a
+          href="services#4"
+        >
+          <div
+            className="service-category-button"
+          >
+            test4
+          </div>
+        </a>
+      </button>
+      <button
+        className="btn btn-link"
+        disabled={false}
+        type="button"
+      >
+        <a
+          href="services"
+        >
+          <div
+            className="service-category-button"
+          >
+            More
+          </div>
+        </a>
+      </button>
+    </div>
+  </div>
+  <div>
+    <ul
+      className="nav nav-tabs"
+    >
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="#"
+          onClick={[Function]}
+        >
+          test1
+        </a>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="#"
+          onClick={[Function]}
+        >
+          test2
+        </a>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="#"
+          onClick={[Function]}
+        >
+          test3
+        </a>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="#"
+          onClick={[Function]}
+        >
+          test4
+        </a>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="#"
+          onClick={[Function]}
+        >
+          test5
+        </a>
+      </li>
+    </ul>
+    <div
+      className="row"
+    >
+      <div
+        className="card col-4 no-border"
+      >
+        <img
+          alt="..."
+          className="card-img-top"
+          src="/images/skywhale.jpg"
+        />
+        <div
+          className="card-body"
+        >
+          <h5
+            className="card-title"
+          >
+            <a
+              href="/providers"
+            >
+              Pet Washing
+            </a>
+          </h5>
+        </div>
+      </div>
+      <div
+        className="card col-4 no-border"
+      >
+        <img
+          alt="..."
+          className="card-img-top"
+          src="/images/skywhale.jpg"
+        />
+        <div
+          className="card-body"
+        >
+          <h5
+            className="card-title"
+          >
+            <a
+              href="/providers"
+            >
+              Pet Nail Services
+            </a>
+          </h5>
+        </div>
+      </div>
+      <div
+        className="card col-4 no-border"
+      >
+        <img
+          alt="..."
+          className="card-img-top"
+          src="/images/skywhale.jpg"
+        />
+        <div
+          className="card-body"
+        >
+          <h5
+            className="card-title"
+          >
+            <a
+              href="/providers"
+            >
+              Pet Boarding
+            </a>
+          </h5>
+        </div>
+      </div>
+      <div
+        className="card col-4 no-border"
+      >
+        <img
+          alt="..."
+          className="card-img-top"
+          src="/images/skywhale.jpg"
+        />
+        <div
+          className="card-body"
+        >
+          <h5
+            className="card-title"
+          >
+            <a
+              href="/providers"
+            >
+              Pet Day Care
+            </a>
+          </h5>
+        </div>
+      </div>
+      <div
+        className="card col-4 no-border"
+      >
+        <img
+          alt="..."
+          className="card-img-top"
+          src="/images/skywhale.jpg"
+        />
+        <div
+          className="card-body"
+        >
+          <h5
+            className="card-title"
+          >
+            <a
+              href="/providers"
+            >
+              Pet Training
+            </a>
+          </h5>
+        </div>
+      </div>
+      <div
+        className="card col-4 no-border"
+      >
+        <img
+          alt="..."
+          className="card-img-top"
+          src="/images/skywhale.jpg"
+        />
+        <div
+          className="card-body"
+        >
+          <h5
+            className="card-title"
+          >
+            <a
+              href="/providers"
+            >
+              Pet Home Medical
+            </a>
+          </h5>
+        </div>
+      </div>
+      <div
+        className="card col-4 no-border"
+      >
+        <img
+          alt="..."
+          className="card-img-top"
+          src="/images/skywhale.jpg"
+        />
+        <div
+          className="card-body"
+        >
+          <h5
+            className="card-title"
+          >
+            <a
+              href="/providers"
+            >
+              Pet Walking
+            </a>
+          </h5>
+        </div>
+      </div>
+    </div>
+    ;
+    <br />
+  </div>
+</div>
+`;

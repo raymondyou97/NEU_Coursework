@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "answer": "we have 300 people.",
+    "question": "how many employees do you have?"
+  },
+  {
+    "id": 2,
+    "answer": "10 people and growing!",
+    "question": "how many employees do you have?"
+  },
+  {
+    "id": 3,
+    "answer": "we've been in business 15 years",
+    "question": "how long have you been operating?"
+  },
+  {
+    "id": 4,
+    "answer": "Just got started last year",
+    "question": "how long have you been operating?"
+  },
+  {
+    "id": 5,
+    "answer": "On Mass Ave!",
+    "question": "where are you based out of?"
+  }
+]

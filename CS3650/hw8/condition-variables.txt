@@ -1,0 +1,55 @@
+Chapter 30 of our online text, ostep.org, has a nice description
+of condition variables.  This note tries to give added intuition
+without duplicating the basic exposition of Chapter 30.  For
+definitions of pthread_cond_wait() and pthread_cond_signal(),
+see both the man pages, and Section 30.1 of Chapter 30.  Note that
+the ostep.ord text frequently refers simply to wait() and signal()
+for short, although pthread_cond_wait() and pthread_cond_signal()
+are intended.
+
+Next comes the added intuition.  Let us call a "monitor" the
+section of code that is protected by a mutex lock.  Let us call
+the "waiting room" the place where threads go to wait after
+calling pthread_cond_wait().  Then a thread has four possible states.
+
+A.  Outside the monitor (and outside the waiting room),
+	 and not holding the mutex lock.
+B.  Inside the monitor, and holding the mutex lock.
+C.  Inside the waiting room, and asleep, and not holding the mutex lock.
+	[ Recall that we should never sleep while holding a mutex lock.
+	  Note also that we should sleep while waiting, so as not to
+	  consume CPU resources.  Otherwise, this would be called
+	  busy waiting, and busy waiting is considered bad. ]
+D.  Inside the waiting room, and awake, and waiting to acquire
+	the mutex lock.
+
+Your implementation of pthread_cond_wait/pthread_cond_signal must 
+implement all four states, including sleeping.  However, a simple way
+to simulate "sleeping" is to replace it by "sem_wait()".
+
+If you choose an implementation based on sem_wait(), then you will
+want pthread_cond_signal() to call sem_post().  This brings us to the
+next issue.
+
+The system call sem_post() has an essential difference from that of
+pthread_cond_signal().  If no thread is waiting (nobody in the
+waiting room), then pthread_cond_signal() acts as a null operation
+and nothing happens.  But if no thread is waiting on a semaphore,
+and we call sem_post, then the count value for the semaphore is still
+incremented.  Thus, calling sem_post() before any call to sem_wait()
+acts as a "free pass", and the next thread to call sem_wait() will
+see a count of "1", and so the thread will not block.
+
+So, for condition variables, if we implement pthread_cond_signal()
+on top of sem_post(), then the next thread to call pthread_cond_wait()
+may receive a "free pass", and may therefore not block.  Technically, this
+is known as a spurious wakeup.  (See "man pthread_cond_broadcast" for
+an example of an implementation that allows spurious wakeups.)
+
+Just as "busy waiting" is bad, "spurious wakeups" are also bad.
+So, if you use this implementation, you will need to keep your own
+independent variable, "count", which externally tracks the count value
+that sem_post/sem_wait would use internally.  Since multiple threads
+might access "count" simultaneously, you will also need to protect the
+"count" variable with its own mutex, "count_mutex".
+

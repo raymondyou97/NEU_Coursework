@@ -1,0 +1,37 @@
+class Condition {
+    sem_t m_sem;
+    int   m_waiters;
+    int   m_signals;
+    pthread_mutex_t *m_mutex;
+public:
+
+    // Declaration of construction in C++ style
+    Condition(pthread_mutex_t *_mutex){
+        sem_init(&this->m_sem,0,0);
+        this->m_waiters = 0;
+        this->m_signals = 0;
+        this->m_mutex = _mutex;
+    }
+    // Declaration of destructor in C++ style [ does nothing ]
+    ~Condition(){}
+    void wait();
+    void signal();
+};
+
+void Condition::wait() {
+    this->m_waiters++;
+    pthread_mutex_unlock(this->m_mutex);
+    sem_wait(&this->m_sem);
+    pthread_mutex_lock(this->m_mutex);
+    this->m_waiters--;
+    this->m_signals--;
+}
+
+void Condition::signal() {
+    pthread_mutex_lock(this->m_mutex);
+    if (this->m_waiters && (this->m_waiters > this->m_signals)) {
+        sem_post(&this->m_sem);
+        this->m_signals++;
+    }
+    pthread_mutex_unlock(this->m_mutex);
+}

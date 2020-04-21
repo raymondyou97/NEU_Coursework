@@ -1,0 +1,6 @@
+assembly - Programmer's Model 
+C ptrs - *(dereference, follow the pointer), &, ->
+myshell - system calls: fork(), execup(), waitpid(); struct file : open(), close(), dup(), pipe()
+Python - simple knowledge including list comprehensions
+xv6 - (* foo).field -> foo -> field; 
+cache: fully associative, direct-mapped, set associated (extend prog. model -> virtual memory)

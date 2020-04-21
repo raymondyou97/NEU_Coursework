@@ -1,0 +1,672 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot renders 1`] = `
+<ul>
+  <li
+    style={
+      Object {
+        "listStyle": "none",
+      }
+    }
+  >
+    <p>
+      <div>
+        <h2
+          id="123"
+        >
+          Home Improvements
+        </h2>
+        <div>
+          <div>
+            <div
+              className="card-deck"
+            >
+              <div
+                className="card"
+                style={
+                  Object {
+                    "flex": "none",
+                    "flexDirection": "column",
+                    "flexWrap": "wrap",
+                    "marginBottom": "15px",
+                    "maxHeight": "100%",
+                    "maxWidth": "50%",
+                  }
+                }
+              >
+                <img
+                  className="card-img-top"
+                  src="https://picsum.photos/300/200"
+                />
+                <div
+                  className="card-body"
+                >
+                  <p
+                    className="card-text"
+                  >
+                    <a
+                      href="/ServiceProviderSearch/1"
+                    >
+                      Appliance Installation
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <div
+                className="card"
+                style={
+                  Object {
+                    "flex": "none",
+                    "flexDirection": "column",
+                    "flexWrap": "wrap",
+                    "marginBottom": "15px",
+                    "maxHeight": "100%",
+                    "maxWidth": "50%",
+                  }
+                }
+              >
+                <img
+                  className="card-img-top"
+                  src="https://picsum.photos/300/200"
+                />
+                <div
+                  className="card-body"
+                >
+                  <p
+                    className="card-text"
+                  >
+                    <a
+                      href="/ServiceProviderSearch/2"
+                    >
+                      Cabinetry
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <div
+                className="card"
+                style={
+                  Object {
+                    "flex": "none",
+                    "flexDirection": "column",
+                    "flexWrap": "wrap",
+                    "marginBottom": "15px",
+                    "maxHeight": "100%",
+                    "maxWidth": "50%",
+                  }
+                }
+              >
+                <img
+                  className="card-img-top"
+                  src="https://picsum.photos/300/200"
+                />
+                <div
+                  className="card-body"
+                >
+                  <p
+                    className="card-text"
+                  >
+                    <a
+                      href="/ServiceProviderSearch/3"
+                    >
+                      Door Installation
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <div
+                className="card"
+                style={
+                  Object {
+                    "flex": "none",
+                    "flexDirection": "column",
+                    "flexWrap": "wrap",
+                    "marginBottom": "15px",
+                    "maxHeight": "100%",
+                    "maxWidth": "50%",
+                  }
+                }
+              >
+                <img
+                  className="card-img-top"
+                  src="https://picsum.photos/300/200"
+                />
+                <div
+                  className="card-body"
+                >
+                  <p
+                    className="card-text"
+                  >
+                    <a
+                      href="/ServiceProviderSearch/4"
+                    >
+                      Concrete Removal
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Appliance Installation
+              </a>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Cabinetry
+              </a>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Door Installation
+              </a>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Concrete Removal
+              </a>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Dishwasher Installation
+              </a>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Finish Carpentry
+              </a>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Floor Polishing
+              </a>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Furniture Assembly
+              </a>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Generator Installation
+              </a>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Gardening
+              </a>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Home Organizing
+              </a>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Electrical and Wiring Repair
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </p>
+  </li>
+  <li
+    style={
+      Object {
+        "listStyle": "none",
+      }
+    }
+  >
+    <p>
+      <div>
+        <h2
+          id="345"
+        >
+          Pets
+        </h2>
+        <div>
+          <div>
+            <div
+              className="card-deck"
+            >
+              <div
+                className="card"
+                style={
+                  Object {
+                    "flex": "none",
+                    "flexDirection": "column",
+                    "flexWrap": "wrap",
+                    "marginBottom": "15px",
+                    "maxHeight": "100%",
+                    "maxWidth": "50%",
+                  }
+                }
+              >
+                <img
+                  className="card-img-top"
+                  src="https://picsum.photos/300/200"
+                />
+                <div
+                  className="card-body"
+                >
+                  <p
+                    className="card-text"
+                  >
+                    <a
+                      href="/ServiceProviderSearch/1"
+                    >
+                      Cat Grooming
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <div
+                className="card"
+                style={
+                  Object {
+                    "flex": "none",
+                    "flexDirection": "column",
+                    "flexWrap": "wrap",
+                    "marginBottom": "15px",
+                    "maxHeight": "100%",
+                    "maxWidth": "50%",
+                  }
+                }
+              >
+                <img
+                  className="card-img-top"
+                  src="https://picsum.photos/300/200"
+                />
+                <div
+                  className="card-body"
+                >
+                  <p
+                    className="card-text"
+                  >
+                    <a
+                      href="/ServiceProviderSearch/2"
+                    >
+                      Dog Training
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <div
+                className="card"
+                style={
+                  Object {
+                    "flex": "none",
+                    "flexDirection": "column",
+                    "flexWrap": "wrap",
+                    "marginBottom": "15px",
+                    "maxHeight": "100%",
+                    "maxWidth": "50%",
+                  }
+                }
+              >
+                <img
+                  className="card-img-top"
+                  src="https://picsum.photos/300/200"
+                />
+                <div
+                  className="card-body"
+                >
+                  <p
+                    className="card-text"
+                  >
+                    <a
+                      href="/ServiceProviderSearch/3"
+                    >
+                      Pet Boarding
+                    </a>
+                  </p>
+                </div>
+              </div>
+              <div
+                className="card"
+                style={
+                  Object {
+                    "flex": "none",
+                    "flexDirection": "column",
+                    "flexWrap": "wrap",
+                    "marginBottom": "15px",
+                    "maxHeight": "100%",
+                    "maxWidth": "50%",
+                  }
+                }
+              >
+                <img
+                  className="card-img-top"
+                  src="https://picsum.photos/300/200"
+                />
+                <div
+                  className="card-body"
+                >
+                  <p
+                    className="card-text"
+                  >
+                    <a
+                      href="/ServiceProviderSearch/4"
+                    >
+                      Pet Sitting
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Cat Grooming
+              </a>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Dog Training
+              </a>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Pet Boarding
+              </a>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Pet Sitting
+              </a>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Dog Walking
+              </a>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Dog Grooming
+              </a>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Dog Daycare
+              </a>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Aquarium Services
+              </a>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Animal Training (Non-canine)
+              </a>
+            </div>
+            <div>
+              <a
+                href="/providers"
+              >
+                 
+                Behavior Modification (Non-canine)
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </p>
+  </li>
+  <li
+    style={
+      Object {
+        "listStyle": "none",
+      }
+    }
+  >
+    <p>
+      <div>
+        <h2
+          id="234"
+        >
+          Wellness
+        </h2>
+        <div>
+          <div>
+            <div
+              className="card-deck"
+            />
+          </div>
+        </div>
+      </div>
+    </p>
+  </li>
+  <li
+    style={
+      Object {
+        "listStyle": "none",
+      }
+    }
+  >
+    <p>
+      <div>
+        <h2
+          id="456"
+        >
+          Business
+        </h2>
+        <div>
+          <div>
+            <div
+              className="card-deck"
+            />
+          </div>
+        </div>
+      </div>
+    </p>
+  </li>
+  <li
+    style={
+      Object {
+        "listStyle": "none",
+      }
+    }
+  >
+    <p>
+      <div>
+        <h2
+          id="567"
+        >
+          Events
+        </h2>
+        <div>
+          <div>
+            <div
+              className="card-deck"
+            />
+          </div>
+        </div>
+      </div>
+    </p>
+  </li>
+  <li
+    style={
+      Object {
+        "listStyle": "none",
+      }
+    }
+  >
+    <p>
+      <div>
+        <h2
+          id="678"
+        >
+          Crafts
+        </h2>
+        <div>
+          <div>
+            <div
+              className="card-deck"
+            />
+          </div>
+        </div>
+      </div>
+    </p>
+  </li>
+  <li
+    style={
+      Object {
+        "listStyle": "none",
+      }
+    }
+  >
+    <p>
+      <div>
+        <h2
+          id="789"
+        >
+          Design and Web
+        </h2>
+        <div>
+          <div>
+            <div
+              className="card-deck"
+            />
+          </div>
+        </div>
+      </div>
+    </p>
+  </li>
+  <li
+    style={
+      Object {
+        "listStyle": "none",
+      }
+    }
+  >
+    <p>
+      <div>
+        <h2
+          id="890"
+        >
+          Legal
+        </h2>
+        <div>
+          <div>
+            <div
+              className="card-deck"
+            />
+          </div>
+        </div>
+      </div>
+    </p>
+  </li>
+  <li
+    style={
+      Object {
+        "listStyle": "none",
+      }
+    }
+  >
+    <p>
+      <div>
+        <h2
+          id="987"
+        >
+          Personal
+        </h2>
+        <div>
+          <div>
+            <div
+              className="card-deck"
+            />
+          </div>
+        </div>
+      </div>
+    </p>
+  </li>
+  <li
+    style={
+      Object {
+        "listStyle": "none",
+      }
+    }
+  >
+    <p>
+      <div>
+        <h2
+          id="876"
+        >
+          Photography
+        </h2>
+        <div>
+          <div>
+            <div
+              className="card-deck"
+            />
+          </div>
+        </div>
+      </div>
+    </p>
+  </li>
+</ul>
+`;

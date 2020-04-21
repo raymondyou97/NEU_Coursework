@@ -1,0 +1,16 @@
+// Recognizes the language consisting of all ordered pairs
+// <x,xx> such that x is the square of xx.
+//
+// To avoid having to encode ordered pairs, this program
+// takes x and xx as separate inputs.
+//
+// Examples:
+//     /course/cs3800sp19/Examples/While/whileFork test5.wf 36 6
+//     /course/cs3800sp19/Examples/While/whileFork test5.wf 36 5
+
+input x;
+input xx;
+if x = xx * xx
+  then accept
+  else reject;
+output 0

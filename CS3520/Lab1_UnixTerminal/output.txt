@@ -1,0 +1,19 @@
+# Simply copy and paste the output from your terminal here!
+-bash-4.2$ cd Lab1_UnixTerminal/
+-bash-4.2$ ls
+ExternalResources  images  main  main.c  output.txt  README.md
+-bash-4.2$ bat output.txt 
+-bash: bat: command not found
+-bash-4.2$ cat output.txt 
+# Simply copy and paste the output from your terminal here!
+-bash-4.2$ ls
+ExternalResources  images  main  main.c  output.txt  README.md
+-bash-4.2$ cat output.txt
+# Simply copy and paste the output from your terminal here!
+-bash-4.2$ mkdir fakedir
+-bash-4.2$ rmdir fakedir/
+-bash-4.2$ cd ..
+-bash-4.2$ pwd
+/home/raymondyou97/CS3520_Raymond_You_Coursework
+-bash-4.2$ 
+

@@ -1,0 +1,136 @@
+Raymond You and Elizabeth Cho
+CS 4550 (Web Development) - Final Project
+Project Report
+
+Meta:
+Who was on your team?
+-Our team was composed of two members, Raymond You and Elizabeth Cho
+
+What's the URL of your deployed app?
+-The URL of our deployed app is 
+https://foodiefriends.raymondwebdev.com/
+
+What's the URL of your github repository with the code for 
+your deployed app?
+-The URL of our GitHub repository with the code for the deployed 
+app is https://github.com/raymondyou97/FoodieFriends
+
+Is your app deployed and working?
+-Yes, our app is deployed and working completely.
+
+For each team member, what work did that person do on the project?
+-Raymond: He worked on mainly the backend infrastructure 
+setup including the API endpoints, Phoenix project 
+setup, dependencies and package inclusion. He also 
+worked on the frontend doing various tasks including webpage 
+design, connecting to the API endpoints, and state of user session.
+-Elizabeth: She worked on mainly the frontend functionalities such 
+as group functionalities of friends including joining/leaving a 
+group, and display important information about the group. She 
+also did a lot of work on the design website making it like 
+modern and sleek.
+
+App:
+What does your project 2 app do?
+-Our project is called FoodieFriends. It is a web application 
+that allows user to view recipes of any category and add 
+specific recipes to their personal list of recipes 
+(a recipebook) with social media aspects incorporated such as 
+chat and groups. Inspiration for this application came from our 
+love for food and use of social media and wanting to create 
+something that is the intersection of those two fields. Users 
+are able to register for an account and log-in with that account 
+to gain an individualized view in the application depending on 
+the users' actions. These users can search for recipes entering 
+any search query parameters in the search bar and a list of up to 
+60 recipe results are returned. The user can then choose to view 
+more details of that recipe or add it to his/her recipe book. 
+The user can also join food groups containing other users 
+of FoodieFriends and after joining that food group, can 
+communicate with them through the chat functionalities.
+
+How do users interact with your application? What can they 
+accomplish by doing so?
+-Users interact with the application through various key presses 
+and mouse actions. Some interactions with our applications 
+include but are not limited to registering for an account 
+and entering various forms of information such as email, 
+first name, last name, age, gender, searching for recipes 
+through the search bar that is displayed on all pages, adding 
+recipes after searching for recipes to the user's personal 
+recipe book, joining groups with other users to communicate and 
+share recipes.
+
+For each project requirement above, how does your app meet 
+that requirement?
+-We address each requirement below respectively in numerical order.
+    1. Our application is significantly more ambitious and have 
+    more features and functions than either the memory game or 
+    the task tracker app as it interacts with two third-party 
+    APIs (Yummly and AWS) that require authentication and have 
+    various more functionalities and features than both those apps.
+    2. The server side logic of our app is built using 
+    Elixir / Phoenix and our front end utilizes React.
+    3. Answer here is the same as the answer provided for (2).
+    4. Our application has significant server-side / back-end 
+    logic as we were required to manipulate the data that can 
+    back from our APIs in multiple occasions and we also had 
+    to transform our data that came back from the queries into a 
+    data that was useful to our needs.
+    5. Our app is deployed on one of our member's VPS.
+    6. We self-host the two images that we use on our VPS. They 
+    are stored in a folder called images in the assets directory.
+    7. Our application has user accounts and local password 
+    authentication implemented securely.
+    8. Users are stored in our Postgres database along with some 
+    other persistent state.
+    9. For both our APIs (Foodly and AWS), they required 
+    authentication through one or more api keys that were required to 
+    be sent along with any request towards that API endpoint.
+    10. All our requests to the API come from the backend server. The 
+    browser code only makes request to our server.
+    11. Our application uses Phoenix Channel in the chatroom 
+    functionality. Whenever a member of the group sends a message, 
+    all other members that are currently in the group see the new 
+    message in real-time.
+    12. Our team consists of 2 members and everyone contributed to 
+    the project, both code and the presentation.
+
+
+What interesting stuff does your app include beyond the project 
+requirements?
+-I would say the most interesting and difficult aspect of our app is 
+in the user profile section where the user is able to upload a 
+picture to set as his/her profile picture. Rather than saving these 
+images directly in the VPS, the images are stored remotely on a AWS 
+S3 bucket created for this application. This allowed us to focus on 
+the functionality of the profile picture rather than the logistics of 
+where the images are stored and the possibility of an attack on our 
+VPS where the attacker is able to steal all the picture data.
+
+What's the complex part of your app? How did you design that 
+component and why?
+-The complex part of our app was planning and figuring out where and 
+how the group chatroom aspect of our application worked. We designed 
+the group chat component by having this component be in the bottom of 
+the application, no matter what page the user was on. We thought this 
+best made sense as the user can join the group chat, regardless of 
+what the user is currently viewing or doing. The user is able to 
+easily join and of the groups he/she is in and also leave that group.
+
+What was the most significant challenge you encountered and how did 
+you solve it?
+-The most significant challenge we encountered was making our state 
+flow evenly between components. Initially, we thought we wouldn't 
+need Redux as our application state wouldn't be too complicated. We 
+ended up finding too late that we should've used Redux to help manage 
+our state since the beginning. An example of an issue we ran into was 
+one component updating a state value that another component needed, 
+but there wasn't a great way to pass the data from one component to 
+the other. Instead, we solved it by passing the data needed through 
+the cookies, and when needed do a page reload. This may have damaged 
+our SPA application a little bit but due to how fast it loads and the 
+few amounts of times this needs to happen, it didn't seem too 
+gamebreaking. Overall, because it was already too late to change our 
+entire application, we decided to stick with this method. If we could 
+go back in time, we most definitely would've used Redux instead.

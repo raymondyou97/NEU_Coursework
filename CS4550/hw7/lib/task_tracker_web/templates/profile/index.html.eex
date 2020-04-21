@@ -1,0 +1,73 @@
+<h5 style="border-bottom: 1px solid black;">My Profile</h5>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>User ID (MY ID)</th>
+            <th>Supervisor ID</th>
+            <th>Email</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%= @currentUser.id %></td>
+            <td>
+                <%= if @currentUser.supervisor_id do %>
+                <%= @currentUser.supervisor_id %>
+                <% else %>
+                No supervisor
+                <% end %>
+            </td>
+            <td><%= @currentUser.email %></td>
+            <td><%= @currentUser.name %></td>
+        </tr>
+    </tbody>
+</table>
+
+<h5 style="border-bottom: 1px solid black;">My Supervisor's Profile</h5>
+<%= if @supervisor do %>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Supervisor ID</th>
+            <th>Supervisor Email</th>
+            <th>Supervisor Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%= @supervisor.id %></td>
+            <td><%= @supervisor.email %></td>
+            <td><%= @supervisor.name %></td>
+        </tr>
+    </tbody>
+</table>
+<% else %>
+No supervisor
+<% end %>
+
+<h5 style="border-bottom: 1px solid black;">My Underlings</h5>
+<%= if length(@underlings) > 0 do %>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Underling ID</th>
+            <th>Underling's Supervisor ID (MY ID) </th>
+            <th>Underling Email</th>
+            <th>Underling Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%= for underling <- @underlings do %>
+        <tr>
+            <td><%= underling.id %></td>
+            <td><%= underling.supervisor_id %></td>
+            <td><%= underling.email %></td>
+            <td><%= underling.name %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<% else %>
+No underlings
+<% end %>

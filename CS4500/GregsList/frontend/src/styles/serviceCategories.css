@@ -1,0 +1,111 @@
+td {
+  padding: 16px 8px;
+  box-sizing: border-box;
+  font-family: 'Times New Roman';
+}
+
+tr {
+  padding: 0px 16px;
+}
+
+button {
+  height: 25px;
+  color: white;
+  border-radius: 3px;
+  border: 0;
+}
+
+.service-category-title {
+  margin-bottom: 0;
+}
+
+.service-category-table {
+  width: 67%;
+  margin: 16px auto;
+  display: flex;
+  flex: 0 1;
+  border: 1px solid #556270;
+  border-radius: 3px;
+}
+
+.service-category-table-body {
+  display: inline-block;
+  width: 100%;
+}
+
+.service-category-details {
+  display: flex;
+  flex: 1 1;
+}
+
+.service-category-columns {
+  border-bottom: 1px solid #333;
+  font-weight: bold;
+  display: flex;
+  flex: 1 1;
+}
+
+.service-category-columns td {
+  display: flex;
+  flex: 1 0;
+  font-size: 20px;
+}
+
+.service-category-details td {
+  display: flex;
+  box-sizing: border-box;
+  flex: 1 0;
+}
+
+.service-category-detail-buttons {
+  display: flex;
+  flex: 1 1;
+}
+
+.service-category-buttons button {
+  display: flex;
+  flex: 1 0;
+}
+
+.service-category-buttons button:first-child {
+  margin-right: 4px;
+}
+
+.service-category-inputs {
+  display: flex;
+  flex: 1 1;
+}
+
+.service-category-inputs td {
+  display: flex;
+  flex: 1 0;
+}
+
+.service-category-inputs td input {
+  width: 100%;
+  height: 19px;
+  border-radius: 3px;
+  border: 1px solid #d5ded9;
+}
+
+.service-category-input-buttons button {
+  display: flex;
+  flex: 1 1;
+}
+
+.service-category-input-buttons button:first-child {
+  margin-right: 4px;
+}
+
+.service-category-add-button,
+.service-category-edit-button {
+  background-color: #218838;
+}
+
+.service-category-update-button {
+  background-color: #007bff;
+}
+
+.service-category-delete-button {
+  background-color: #dc3545;
+}

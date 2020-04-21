@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Initial snapshot renders 1`] = `
+<div>
+  <h5>
+    Business General
+  </h5>
+  <div
+    className="row"
+  >
+    <div
+      className="col-12"
+    >
+      <label
+        htmlFor="businessNameInput"
+      >
+        Business name
+      </label>
+      <input
+        className="form-control"
+        id="businessNameInput"
+        type="text"
+      />
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-12"
+    >
+      <label
+        htmlFor="businessYearFoundedInput"
+      >
+        Year founded
+      </label>
+      <input
+        className="form-control"
+        id="businessYearFoundedInput"
+        type="number"
+      />
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-12"
+    >
+      <label
+        htmlFor="businessNumEmployeesInput"
+      >
+        Number of employees
+      </label>
+      <input
+        className="form-control"
+        id="businessNumEmployeesInput"
+        type="number"
+      />
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-12"
+    >
+      <label
+        htmlFor="businessEmailInput"
+      >
+        Email
+      </label>
+      <input
+        className="form-control"
+        id="businessEmailInput"
+        type="email"
+      />
+    </div>
+  </div>
+</div>
+`;

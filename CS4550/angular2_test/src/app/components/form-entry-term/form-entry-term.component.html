@@ -1,0 +1,24 @@
+<div class="form-entry-terms-wrapper">
+    <form>
+      <fieldset>
+        <div>
+          <div class="col-xs-9">
+            <div>
+              <div>
+                <span>Enter a search term (can be food, restaurants) such as:</span>
+                <ul>
+                  <li>Starbucks</li>
+                  <li>food</li>
+                  <li>restaurants</li>
+                </ul>
+              </div>
+              <input type="text" class="form-control" [(ngModel)]="term" [ngModelOptions]="{standalone: true}">
+              <span><button type="button" class="btn btn-primary" (click)="emitResponse()">Submit</button></span>
+              <span><button type="button" class="btn btn-info" (click)="emitSkipResponse()">Skip</button></span>
+              <span><button type="button" class="btn btn-secondary" (click)="emitBackResponse()">Go Back</button></span>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>

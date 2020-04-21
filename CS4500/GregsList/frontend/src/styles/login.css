@@ -1,0 +1,34 @@
+.sign-in-container {
+  width: 50%;
+  margin: 50px auto;
+}
+
+.login-container h1 {
+  margin-bottom: 32px;
+}
+
+.login-label {
+  text-align: left;
+  display: inline-block;
+  width: 100%;
+}
+
+.login-label-fail {
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  color: red;
+}
+
+.login-input {
+  margin-bottom: 32px;
+}
+
+.login-input.error {
+  border-color: red;
+}
+
+.submit-button {
+  height: 100%;
+  width: 25%;
+}

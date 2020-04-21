@@ -1,0 +1,8 @@
+<div class="container">
+    <%= if @current_user do %>
+        <h1>Welcome to Task Tracker</h1>
+    <% else %>
+        <h1>Welcome to Task Tracker</h1>
+        <p><%= link "Register", to: Routes.user_path(@conn, :new) %></p>
+    <% end %>
+</div>

@@ -1,0 +1,28 @@
+<div class="form-entry-categories-wrapper">
+	<form>
+		<fieldset>
+			<div>
+				<div class="col-xs-9">
+					<div>
+						<div>
+							<span>Enter categories separated by commas, eg. "steak,seafood,restaurant". Examples of categories include but are not limited to:</span>
+							<ul>
+								<li>steak</li>
+								<li>chinese</li>
+								<li>coffee</li>
+								<li>bakeries</li>
+							</ul>
+							<span>For a full list of categories, head 
+								<a href="https://www.yelp.com/developers/documentation/v3/all_category_list">here</a>
+							</span>
+						</div>
+						<input type="text" class="form-control" [(ngModel)]="categories" [ngModelOptions]="{standalone: true}">
+						<span><button type="button" class="btn btn-primary" (click)="emitResponse()">Submit</button></span>
+						<span><button type="button" class="btn btn-info" (click)="emitSkipResponse()">Skip</button></span>
+						<span><button type="button" class="btn btn-secondary" (click)="emitBackResponse()">Go Back</button></span>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>

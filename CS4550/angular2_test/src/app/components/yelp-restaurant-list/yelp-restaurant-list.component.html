@@ -1,0 +1,42 @@
+<div class="radio-button-option">
+	<span><button type="button" class="btn btn-primary btn-width" (click)="combineQueryResponse()">Search</button></span>
+	<span><button type="button" class="btn btn-secondary btn-width" (click)="emitBackResponse()">Start Over</button></span>
+</div>
+
+<table *ngIf="restaurantsPopulated" class="table">
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Add</th>
+			<th scope="col">Name</th>
+			<th scope="col">Rating</th>
+			<th scope="col">Review Count</th>
+			<th scope="col">Address</th>
+			<th scope="col">Price</th>
+			<th scope="col">Categories</th>
+			<th scope="col">URL</th>
+			<th scope="col">Image URL</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let restaurant of listOfRestaurants; let i = index">
+			<th scope="row">{{ i + 1 }}</th>
+			<td>
+				<input type="checkbox" class="form-check-input" name="options" value="{{restaurant.name}}" [(ngModel)]="restaurant.added">
+			</td>
+			<td>{{ restaurant.name }}</td>
+			<td>{{ restaurant.rating }}</td>
+			<td>{{ restaurant.reviewCount }}</td>
+			<td>{{ restaurant.address }}</td>
+			<td>{{ restaurant.price }}</td>
+			<td>{{ restaurant.categories }}</td>
+			<td><a href="{{restaurant.url}}">here</a></td>
+			<td><a href="{{restaurant.imageUrl}}">here</a></td>
+		</tr>
+	</tbody>
+</table>
+
+<div *ngIf="restaurantsPopulated" class="radio-button-reset">
+	<span><button type="button" class="btn btn-success btn-width" (click)="AddAll()">Add Selected Restaurants</button></span>
+	<span><button type="button" class="btn btn-danger btn-width" (click)="clearAll()">Clear All Selected Restaurants</button></span>
+</div>

@@ -1,0 +1,14 @@
+<script>
+  function joinGame() {
+    let name = document.getElementById('gameName').value;
+    location.href='/game/' + name;
+  }
+</script> 
+
+<div class="row">
+  <div class="column">
+    <p>Enter a game name:</p>
+    <input type="text" id="gameName">
+    <button onClick=joinGame()>Join</button>
+  </div>
+</div>

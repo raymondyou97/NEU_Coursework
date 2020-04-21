@@ -1,0 +1,52 @@
+/* This file is for your main application css. */
+
+$body-bg: #EEE;
+
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    height: -webkit-fill-available;
+}
+
+.help-block {
+    color: red;
+}
+
+.timeblock-entry {
+    border: 1px solid black;
+}
+
+.timeblock-info {
+    font-size: 14px;
+}
+
+.timeblock-btns {
+    text-align: center;
+}
+
+.edit-task-block {
+    display: none;
+    text-align: center;
+    background-color: darkgray;
+}
+
+.edit-task-text {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.input-time {
+    height: 35px;
+    margin-bottom: 10px;
+}
+
+.error-edit {
+    color: red;
+    font-size: 23px;
+}
+
+.success-edit {
+    display: none;
+    color: green;
+    font-size: 23px;
+}

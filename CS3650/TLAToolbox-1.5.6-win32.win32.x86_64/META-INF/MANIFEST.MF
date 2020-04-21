@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: 1.8.0_161 (Oracle Corporation)
+
+Name: toolbox.exe
+SHA-256-Digest: vHwMuc/nc6UhQ8ajPM5XgaIUzGmhdYtvE68Pp4sDFRg=
+
+Name: eclipsec.exe
+SHA-256-Digest: RciuNiL/MKwhBl/kkK5Nb8tZ1YqKKl1zcmy5pDREMJw=
+

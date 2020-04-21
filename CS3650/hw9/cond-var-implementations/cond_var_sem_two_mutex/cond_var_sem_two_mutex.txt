@@ -1,0 +1,1 @@
+algorithm is incorrect as deadlock is reached. this can be shown at state (num = 20) where the error begins.

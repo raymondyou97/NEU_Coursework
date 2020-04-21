@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot renders 1`] = `
+<div
+  className="list-group"
+  onKeyDown={[Function]}
+>
+  <div
+    className="list-group-item"
+    data-rb-event-key={null}
+    disabled={false}
+    onClick={[Function]}
+  />
+</div>
+`;

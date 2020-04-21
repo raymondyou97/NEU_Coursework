@@ -1,0 +1,12 @@
+// Accepts the language consisting of composite numbers greater than 2.
+
+input n;
+if n < 2 then reject else skip;
+if n = 2 then reject else skip;
+fork d := 2 through n-1;
+q := n / d;
+if n = q * d
+    then accept
+    else skip;
+reject;
+output 0

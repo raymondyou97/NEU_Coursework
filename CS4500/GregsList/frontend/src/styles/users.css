@@ -1,0 +1,113 @@
+td {
+  padding: 16px 8px;
+  box-sizing: border-box;
+  font-family: 'Times New Roman';
+}
+
+tr {
+  padding: 0px 16px;
+}
+
+button {
+  height: 25px;
+  color: white;
+  border-radius: 3px;
+  border: 0;
+  cursor: pointer;
+}
+
+.user-title {
+  margin-bottom: 0;
+}
+
+.user-table {
+  width: 67%;
+  margin: 16px auto;
+  display: flex;
+  flex: 0 1;
+  border: 1px solid #556270;
+  border-radius: 3px;
+}
+
+.user-table-body {
+  display: inline-block;
+  width: 100%;
+}
+
+.user-details {
+  display: flex;
+  flex: 1 1;
+}
+
+.user-columns {
+  border-bottom: 1px solid #333;
+  font-weight: bold;
+  display: flex;
+  flex: 1 1;
+}
+
+.user-columns td {
+  display: flex;
+  flex: 1 0;
+  font-size: 20px;
+}
+
+.user-details td {
+  display: flex;
+  box-sizing: border-box;
+  flex: 1 0;
+  cursor: pointer;
+}
+
+.user-detail-buttons {
+  display: flex;
+  flex: 1 1;
+}
+
+.user-buttons button {
+  display: flex;
+  flex: 1 0;
+}
+
+.user-buttons button:first-child {
+  margin-right: 4px;
+}
+
+.user-inputs {
+  display: flex;
+  flex: 1 1;
+}
+
+.user-inputs td {
+  display: flex;
+  flex: 1 0;
+}
+
+.user-inputs td input {
+  width: 100%;
+  height: 19px;
+  border-radius: 3px;
+  border: 1px solid #d5ded9;
+}
+
+.user-input-buttons button {
+  display: flex;
+  flex: 1 1;
+}
+
+.user-input-buttons button:first-child {
+  margin-right: 4px;
+}
+
+.user-add-button,
+.user-edit-button {
+  background-color: #218838;
+}
+
+.user-update-button {
+  background-color: #007bff;
+}
+
+.user-delete-button {
+  background-color: #dc3545;
+}

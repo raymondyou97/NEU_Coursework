@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectedServicesList Snapshot renders 1`] = `
+<div
+  className="list-group"
+  onKeyDown={[Function]}
+>
+  <div
+    className="list-group-item active"
+    data-rb-event-key={null}
+    disabled={false}
+    onClick={[Function]}
+  >
+    Appliance Installation
+    <button
+      onClick={[Function]}
+    >
+      X
+    </button>
+  </div>
+  <div
+    className="list-group-item"
+    data-rb-event-key={null}
+    disabled={false}
+    onClick={[Function]}
+  >
+    Cabinetry
+    <button
+      onClick={[Function]}
+    >
+      X
+    </button>
+  </div>
+  <div
+    className="list-group-item"
+    data-rb-event-key={null}
+    disabled={false}
+    onClick={[Function]}
+  >
+    Door Installation
+    <button
+      onClick={[Function]}
+    >
+      X
+    </button>
+  </div>
+  <div
+    className="list-group-item"
+    data-rb-event-key={null}
+    disabled={false}
+    onClick={[Function]}
+  >
+    Concrete Removal
+    <button
+      onClick={[Function]}
+    >
+      X
+    </button>
+  </div>
+  <div
+    className="list-group-item"
+    data-rb-event-key={null}
+    disabled={false}
+    onClick={[Function]}
+  >
+    Dishwasher Installation
+    <button
+      onClick={[Function]}
+    >
+      X
+    </button>
+  </div>
+</div>
+`;

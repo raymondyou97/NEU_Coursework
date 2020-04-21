@@ -1,0 +1,79 @@
+.service-q-a-table {
+  table-layout: fixed;
+  width: 80%;
+  border-collapse: collapse;
+  border: 3px solid black;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.service-q-a-table-header {
+  padding: 15px;
+}
+
+.service-q-a-table td,
+.service-q-a-table th {
+  border-top: 3px solid black;
+  border-right: 3px solid black;
+  padding: 10px;
+}
+
+.service-q-a-table button {
+  border: none;
+  color: black;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  width: 40%;
+}
+
+.service-q-a-add-button {
+  background-color: lightgreen;
+  margin-right: 7px;
+}
+
+.service-q-a-update-button {
+  background-color: lightseagreen;
+}
+
+.service-q-a-show-button {
+  background-color: lightblue;
+  margin-right: 7px;
+}
+
+.service-q-a-delete-button {
+  background-color: lightcoral;
+}
+
+.service-q-a-add-button,
+.service-q-a-show-button,
+.service-q-a-delete-button,
+.service-q-a-update-button {
+  height: initial;
+}
+
+.service-q-a-input-row input {
+  border: 1px solid black;
+  width: 75%;
+  font-size: 15px;
+  min-height: 33px;
+  padding-left: 5px;
+}
+
+.pagination-row {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  margin-top: 4px;
+}
+
+.pagination-button {
+  background-color: lightblue;
+  margin-right: 7px;
+  margin-left: 7px;
+  width: 75px;
+}

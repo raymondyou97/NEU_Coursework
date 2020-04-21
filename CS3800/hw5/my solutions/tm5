@@ -1,0 +1,63 @@
+; A Turing machine that recognizes { W W^R | W is a or b or empty string}
+; Accepts: (), (a a), (a b b a), (b b a a b b), (a b a b b b b b b a b a)
+; Doesnt Accept: (a), (a b), (a b a b), (a a a), (a a b b a)
+
+; Algorithm
+; 1. Cross off first character. Go to end cross off last character
+; 2. Increment and repeat (1)
+; 3. If only Q and X remain, accept. Else, reject.
+
+(
+	;initial case, mark beginning and end character with Q 
+	(q0 (a Q R q1)
+		(b Q R q2)
+		(* * R reject)
+		(_ _ R accept))
+		
+	;a was crossed, go to end
+	(q1 (_ _ L q11)
+		(* * R q1))
+	
+	;b was crossed, go to end
+	(q2 (_ _ L q12)
+		(* * R q2))
+		
+	;cross off a at end
+	(q11 (a Q L q100)
+		 (* * R reject))
+	
+	;cross off b at end
+	(q12 (b Q L q100)
+		 (* * R reject))
+	
+	;at end go back to beginning
+	(q100 (* * L q100)
+		  (Q Q R q3))
+		  
+	;------------------------------
+	
+	;start algo
+	(q3 (a X R q31)
+		(b X R q32)
+		(X X R q3)
+		(* * R reject)
+		(Q Q R accept))
+		
+	;a crossed off go to end
+	(q31 (* * R q31)
+		 (Q Q L q41))
+	
+	;b crossed off go to end
+	(q32 (* * R q32)
+		 (Q Q L q42))
+		 
+	;cross off a at end
+	(q41 (a X L q100)
+		 (X X L q41)
+		 (* * L reject))
+	
+	;cross off b at end
+	(q42 (b X L q100)
+		 (X X L q42)
+		 (* * L reject))
+)

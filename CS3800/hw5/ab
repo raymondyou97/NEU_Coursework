@@ -1,0 +1,19 @@
+; A Turing machine that recognizes { ab }
+
+(
+    ; should be looking at a
+
+    (q0 (a a R q1)
+        (_ _ R reject)
+        (* * R reject))
+
+    ; should be looking at b
+
+    (q1 (b b R q2)
+        (_ _ R reject)
+        (* * R reject))
+
+    ; should be looking at a blank
+
+    (q2 (_ _ R accept)
+        (* * R reject)) )

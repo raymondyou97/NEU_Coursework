@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# Copyright 2009 William D Clinger
+#
+# Script for submitting homework assignments
+# Clinger's section of CS 3800, spring 2019.
+#
+# Delegates to a Scheme script.
+
+SCHEME_SCRIPT=/usr/local/bin/scheme-script
+SUBMIT_SCRIPT=/course/cs3800sp19/.Homework/submit.sps
+
+$SCHEME_SCRIPT $SUBMIT_SCRIPT $@
+

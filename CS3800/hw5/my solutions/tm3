@@ -1,0 +1,113 @@
+; A Turing machine that recognizes { a^n b^n2 | n > 0}
+; Accepts: (a b), (a a b b b b), (a a a b b b b b b b b b)
+; Doesnt Accept: (), (a), (b), (a a b), (a b a b), (a a b b), (a b b b)
+
+; Algorithm
+; 1. Find the square of a and put it all on the right side of the > marker
+; 2. Cross off a b on the left of the > marker and then cross off an a on the right of the > marker until no more a's or b's exist
+; 3. Do a final sweep. If no a's or b's remain, accept. Else, reject.
+
+(
+    ; place < marker
+    (q0 (a < R q01)
+		(b _ R reject)
+        (* * R reject))
+		
+	; check for a's	
+	(q01 (a a R q01)
+		 (b a R q1)
+		 (* * R reject))
+		 
+	; check for b's
+	(q1 (b b R q1)
+		(_ b R q3)
+        (* * R reject))
+		
+	; place > marker
+	(q3 (_ > R q4)
+		(* * R reject))
+		
+	; go back to < marker
+	(q4 (_ _ L q5))
+	(q5 (< < L q10)
+		(* * L q5))
+
+	;start algo
+	(q10 (< < R q10)
+		 (a X R q11))
+		 
+	(q11 (* * R q11)
+		 (_ a R q12))
+	
+	;go back to beginning
+	(q12 (< < R q13)
+		 (* * L q12))
+	
+	(q13 (a X R q11)
+		 (* * R q13)
+		 (> > R q14))
+		 
+	 ;no more a's, place marker
+	(q14 (* * R q14)
+		 (_ w L q15))
+		  
+	(q15 (* * L q15)
+		 (X a L q15)
+		 (< < R q16))
+		 
+	;go to second half and check for pairs
+	(q16 (* * R q16)
+		 (> > R q17))
+	
+	(q17 (a A R q18)
+		 (A A R q17)
+		 (W W L q30))
+	
+	(q18 (* * R q18)
+		 (w W L q19)
+		 (_ _ L q20))
+		 
+	(q19 (* * L q19)
+		 (> > R q17))
+	
+	;cleanup
+	(q20 (W w L q20)
+		 (A a L q20)
+		 (a a L q20)
+		 (> > L q12))
+		 
+	;successful squaring, clean up everything finally for final matching
+	(q30 (W W L q30)
+		 (A a L q30)
+		 (> > L q31))
+		 
+	(q31 (b b L q31)
+		 (a < L q31)
+		 (< < R q32))
+		 
+	(q32 (* * R q32)
+		 (> > L q33))
+		
+	(q33 (b X R q34)
+		 (* * L q33)
+		 (< < R q500))
+		 
+	(q34 (* * R q34)
+		 (_ _ L reject)
+		 (a X L q33))
+		 
+	;final check for fit criteria
+	(q500 (* * R q500)
+		  (_ _ L accept)
+		  (a _ R reject)
+		  (b _ R reject))
+)
+	
+	
+	
+	
+	
+	
+	
+	
+	

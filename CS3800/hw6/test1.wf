@@ -1,0 +1,15 @@
+// Accepts the language consisting of prime numbers.
+
+input n;
+if n < 2 then reject else skip;
+if n = 2 then accept else skip;
+d := 2;
+while d * d < n do
+  begin
+    q := n / d;
+    if n = q * d
+        then reject
+        else d := d + 1
+  end;
+accept;
+output 0

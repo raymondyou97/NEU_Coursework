@@ -1,0 +1,16 @@
+[Unit]
+Description=FoodieFriends
+
+[Service]
+Type=simple
+User=foodiefriends
+Group=foodiefriends
+Restart=on-failure
+Environment=MIX_ENV=prod "PORT=4797"
+Environment=LANG=en_US.UTF-8
+
+WorkingDirectory=/home/foodiefriends/FoodieFriends
+ExecStart=/home/foodiefriends/FoodieFriends/start.sh
+
+[Install]
+WantedBy=multi-user.target 

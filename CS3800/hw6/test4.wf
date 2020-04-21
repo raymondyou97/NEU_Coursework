@@ -1,0 +1,61 @@
+// Accepts the language consisting of palindromes of even length
+// over the printable characters of the ASCII character set,
+// encoded as integers using 8 bits per character.
+//
+// Example:
+//     the empty string is encoded as 0
+//     abcddcba encodes as 7017280452228768353
+//     ablewasiereisawelbaablewasiereisawelba encodes as
+//         12398478861918701994983820879952171272556976615571502093265629990468920726973922342454714977
+
+input s;
+
+// compute length of s
+
+t := s;
+n := 0;
+while t > 0 do
+  begin
+    t := t / 256;
+    n := n + 1
+  end;
+
+// reject if length is odd
+
+if not 0 = n - 2 * (n / 2)
+  then reject
+  else skip;
+
+// divide s into two substrings, each of length n/2
+
+i := 0;
+j := 1;
+
+// loop invariant: j = 256^i
+
+while i < n/2 do
+  begin
+    i := i + 1;
+    j := 256 * j
+  end;
+
+sa := s / j;
+sb := s - sa * j;
+
+// compute the reverse of sb
+
+sbrev := 0;
+
+while sb > 0 do
+  begin
+    t := sb / 256;
+    c := sb - 256 * t;
+    sb := t;
+    sbrev := 256 * sbrev + c
+  end;
+
+if sa = sbrev
+  then accept
+  else reject;
+
+output 0

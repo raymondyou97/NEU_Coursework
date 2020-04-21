@@ -1,0 +1,85 @@
+; A Turing machine that recognizes { W c W | W is a or b or empty string}
+; Accepts: (c), (a a c a a), (a b c a b), (b b a a c b b a a), (a a a c a a a)
+; Doesnt Accept: (), (a b c b a), (a a c b b), (a x c a x), (x a c x a)
+
+; Algorithm
+; 0. Place markers (Q), (special case where first letter crossed off becomes beginning Q marker)
+; 1. Cross off letter in first W, then cross off same letter in second W and repeat.
+; 2. c symbolizes the middle, so after crossing off first letter, look for the c to know where to cross off second letter
+; 3. If first letter doesn't equal second letter, reject. Else, accept.
+
+(
+	;special case for marker
+	(q0 (a Q R q1)
+		(b Q R q2)
+		(c c R q000)
+		(* * R reject)
+		(_ _ R reject))
+	
+	(q000 (_ _ R accept)
+		  (* * R reject))
+		
+	(q1 (c c R q11)
+		(* * R q1)
+		(_ _ R reject))
+	
+	(q2 (c c R q22)
+		(* * R q2)
+		(_ _ R reject))
+		
+	(q11 (a X R q100)
+		 (X X R q11)
+		 (* _ R reject)
+		 (_ _ R reject))
+	
+	(q22 (b X R q100)
+	     (X X R q22)
+		 (* _ R reject)
+		 (_ _ R reject))
+		
+	;something was crossed off, go to end to put ending marker
+	(q100 (* * R q100)
+		  (_ Q L q101))
+		  
+    (q101 (_ _ L q101)
+		  (* * L q101)
+		  (Q Q R q200))
+		  
+	; can finally begin algo. should have Q as first and last letter symbolizing beginning and end
+	(q200 (a X R q201)
+		  (b X R q202)
+		  (X X R q200)
+		  (c c R q200)
+		  (Q Q R accept)
+		  (* * R reject))
+	
+	;a was crossed off, look for c
+	(q201 (c c R q211)
+		  (* * R q201)
+		  (_ _ R reject))
+	
+	;b was crossed off, look for c
+	(q202 (c c R q222)
+		  (* * R q202)
+		  (_ _ R reject))
+		  
+	;a was crossed off, found c, now cross off an a
+	(q211 (a X R q300)
+		  (X X R q211)
+		  (* _ R reject)
+		  (_ _ R reject))
+	
+	;b was crossed off, found c, now cross off an b
+	(q222 (b X R q300)
+		  (X X R q222)
+		  (* _ R reject)
+		  (_ _ R reject))
+		  
+	;a or b was crossed off, find ending
+	(q300 (* * R q300)
+		  (Q Q L q301)
+		  (_ _ R reject))
+		  
+	(q301 (* * L q301)
+		  (Q Q R q200))
+)

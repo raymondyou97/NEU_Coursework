@@ -1,0 +1,55 @@
+The While/Fork programming language
+===================================
+
+The syntax of the While/Fork programming language is defined by
+the following grammar.
+
+  P  -->  input I; P
+       |  Q; output E
+       |  output E
+  Q  -->  S
+       |  S; Q
+  S  -->  accept
+       |  reject
+       |  skip
+       |  I := E
+       |  if B then S else S
+       |  while B do S
+       |  begin Q end
+       |  fork I := E through E
+  E  -->  T  |  E + T  |  E - T
+  T  -->  F  |  T * F  |  T / F
+  F  -->  I  |  ( E )  |  N
+  B  -->  not B  |  E < E  |  E = E  |  E > E
+  I  -->  L  |  IL
+  L  -->  a  |  b  |  c  |  d  |  e  |  f  |  g  |  h  |  i
+       |  j  |  k  |  l  |  m  |  n  |  o  |  p  |  q  |  r
+       |  s  |  t  |  u  |  v  |  w  |  x  |  y  |  z
+  N  -->  D  |  ND
+  D  -->  0  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9
+
+Semantics:  Every While/Fork program mentions a finite number
+of variables.  At the beginning of the program, all of those
+variables are zero except for the input variable, whose value
+is the input to the program.  The program accepts the input
+if and only if it executes an accept statement or an output
+statement, and rejects the input if and only if it executes
+a reject statement; all three of those statements terminate
+the program.  If the program never terminates, it is said to
+loop.
+
+A fork statement evaluates its two expressions to obtain
+integers n1 and n2.  If n1 > n2, then the fork statement
+behaves as though it had been a reject statement.  Otherwise
+n2 - n1 + 1 copies of the program's current configuration are
+made.  For n in { n1, ..., n2 }, copy n assigns n to the
+variable named in the fork statement.  All of the copies
+continue execution following the fork statement, without
+interfering with or influencing each other in any way except:
+If one of the copies executes an accept or output statement,
+then all of the copies cease to execute, and the original
+program accepts its input.  The only way the original program
+can reject an input is for all forked copies to execute a
+reject statement.  The only way the original program can loop
+is for at least one copy to loop, and for all copies that do
+not loop to execute a reject statement.
